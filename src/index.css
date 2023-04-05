@@ -56,10 +56,10 @@ a {
   background: transparent;
   outline: none;
   border: none;
-
-  padding: 7px 15px;
-  margin: 10px 0px;
-  border-radius: 20px;
+  white-space: nowrap;
+  padding: 6px 15px;
+  margin: 7px 0px;
+  border-radius: 10px;
   transition: all 0.3s ease;
 }
 
@@ -69,7 +69,7 @@ a {
   }
 }
 
-@media screen and (max-width:800px){
+@media screen and (max-width:900px){
   .copyright{
     display:none !important;
   }
