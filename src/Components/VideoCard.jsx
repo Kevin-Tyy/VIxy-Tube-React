@@ -31,13 +31,14 @@ const VideoCard = ({ video : { id : { videoId}, snippet}}) => {
                     <CheckCircle sx={{ fontSize : 12 , ml : '5px'}}/>
                 </Typography>
 
+
             </Link>
         </CardContent>
-        
+
 
     </Card>
 
   )
 }
 
-export default VideoCard
+export default VideoCard;
