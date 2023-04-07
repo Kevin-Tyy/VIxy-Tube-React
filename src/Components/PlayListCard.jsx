@@ -3,10 +3,11 @@ import { Link } from 'react-router-dom'
 import { Typography, Card , CardContent, CardMedia } from '@mui/material'
 import { CheckCircle } from '@mui/icons-material'
 
-const VideoCard = ({ video : { id : { videoId}, snippet}}) => {
+const Playlist = ({playlist: { id : { playlistId } , snippet} }) => {
   return (
+  
     <Card sx={{width : { md : '315px', xs : '100%'}, boxShadow : 'none' , borderRadius : 0 }}>
-        <Link to={`/video/${videoId}`} >
+        <Link to={`/video/${playlistId}`} >
             <CardMedia 
                 image={snippet?.thumbnails?.high?.url}
                 alt = {snippet?.title}
@@ -17,7 +18,7 @@ const VideoCard = ({ video : { id : { videoId}, snippet}}) => {
             sx={{backgroundColor : '#090909',   
             height: 106
         }}>
-            <Link to={`/video/${videoId}` }>
+            <Link to={`/video/${playlistId}` }>
                 <Typography variant='subtitle1' fontWeight="bold" color="#fff" fontSize ='12px'>
                     {snippet?.title.slice(0,100)}
                 </Typography>
@@ -37,8 +38,8 @@ const VideoCard = ({ video : { id : { videoId}, snippet}}) => {
 
 
     </Card>
-
-  )
+    
+    )
 }
 
-export default VideoCard;
+export default Playlist

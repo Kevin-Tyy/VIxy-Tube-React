@@ -48,6 +48,7 @@ a {
 
 .category-btn{
   font-weight: bold !important;
+  font-size: 12px;
   text-transform: capitalize;
   display: flex;
   align-items: center;
