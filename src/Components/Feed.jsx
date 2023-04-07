@@ -10,7 +10,7 @@ const Feed = () => {
 
  
   useEffect(()=>{
-    fetchFromAPI(`search?part=snippet&q=${selectedCategory}`)
+    fetchFromAPI(`search?part=snippet&q=${selectedCategory}&type=video,channel`)
       .then((data)=>
         setVideos(data.items)
       )

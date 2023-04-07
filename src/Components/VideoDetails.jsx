@@ -4,11 +4,13 @@ import ReactPlayer from 'react-player'
 import { Box, Stack, Typography } from '@mui/material'
 import { CheckCircle } from '@mui/icons-material'
 
-import { Video } from './'
+import { Video, Videos } from './'
 import { fetchFromAPI } from '../utils/FetchFromApi'
 
 const VideoDetails = () => {
-  const [videoDetail, setVideoDetail] = useState(null)
+  const [videoDetail, setVideoDetail] = useState(null);
+  let [videos, setVideos] = useState(null);
+
   const { id } = useParams()
   const WATCH_URL = 'https://www.youtube.com/watch';
 
@@ -16,11 +18,16 @@ const VideoDetails = () => {
     fetchFromAPI(`videos?part=snippet,statistics&id=${id}`)
       .then((data)=> setVideoDetail(data.items[0]))
 
+
+    fetchFromAPI(`search?part=snippet&relatedToVideoId=${id}&type=video`) 
+      .then((data => setVideos(data.items))) 
+
   }, []);
   
   if(!videoDetail?.snippet){
     return 'loading...'
   }
+  
 
   const { snippet : { title, channelId, channelTitle}, statistics : { viewCount , likeCount}} = videoDetail
   console.log(videoDetail)
@@ -54,7 +61,11 @@ const VideoDetails = () => {
             </Stack>
           </Box>
         </Box>
+        <Box px={2} py={{md : 1 , xs : 5}} justifyContent='center' alignItems='center'>
+          <Videos videos={videos} direction="column"/>
+        </Box>
       </Stack>
+
     </Box>
   )
 }
