@@ -2,7 +2,7 @@ import React , {useState , useEffect}from 'react'
 import { Link , useParams } from 'react-router-dom'
 import ReactPlayer from 'react-player'
 import { Box, Stack, Typography } from '@mui/material'
-import { CheckCircle } from '@mui/icons-material'
+import { CheckCircle, ThumbUpRounded } from '@mui/icons-material'
 
 import { Loader,  Videos } from './'
 import { fetchFromAPI } from '../utils/FetchFromApi'
@@ -52,7 +52,7 @@ const VideoDetails = () => {
                 <Stack direction={'row'} gap="20px" alignItems="center">
                   <Typography variant='body2' sx={{opacity : 0.7}}>
                     {parseInt(viewCount).toLocaleString()} views
-                    
+            
                   </Typography>
 
                   <Typography variant='body2' sx={{opacity : 0.7}}>

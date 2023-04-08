@@ -68,6 +68,7 @@ a {
 @media screen and (max-width : 1300px ){
   .react-player{
     height: 60vh !important;
+
   }
 }
 @media screen and (max-width: 900px) {
