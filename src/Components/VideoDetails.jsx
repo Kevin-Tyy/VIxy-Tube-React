@@ -1,8 +1,8 @@
 import React , {useState , useEffect}from 'react'
 import { Link , useParams } from 'react-router-dom'
 import ReactPlayer from 'react-player'
-import { Box, Stack, Typography } from '@mui/material'
-import { CheckCircle, ThumbUpRounded } from '@mui/icons-material'
+import { Box, Button, IconButton, Stack, Typography } from '@mui/material'
+import { CheckCircle, Download, SaveAlt, Share, ThumbDownAltSharp, ThumbUpRounded } from '@mui/icons-material'
 
 import { Loader,  Videos } from './'
 import { fetchFromAPI } from '../utils/FetchFromApi'
@@ -42,6 +42,7 @@ const VideoDetails = () => {
             </Typography>
             <Stack direction="row" justifyContent="space-between" sx={{color : "#fff"}} py={1} px={2}>
                 <Link to={`/channel/${channelId}`}>
+                  
                   <Typography variant={{sm : 'body2', md : 'h6'}}
                     color="#fff"
                   >
@@ -54,10 +55,48 @@ const VideoDetails = () => {
                     {parseInt(viewCount).toLocaleString()} views
             
                   </Typography>
+                  <Box sx={{backgroundColor : '#ffffff4d', borderRadius : '50px'}}>
+                    <Box sx={{ p: 2 , borderRight : '2px solid #fff'}}>
+                      <Typography variant='body2' sx={{opacity : 0.7}}>
+                        <IconButton sx={{ color : 'white'}}>
+                          <ThumbDownAltSharp/>
+                        </IconButton>
+                        {parseInt(likeCount).toLocaleString()} likes
+                      </Typography>
 
-                  <Typography variant='body2' sx={{opacity : 0.7}}>
-                    {parseInt(likeCount).toLocaleString()} likes
+                    </Box>
+                    <IconButton sx={{ color : 'white'}}>
+                      <ThumbDownAltSharp/>
+                    </IconButton>
+                    
+                  </Box>
+
+                  <Typography>
+                    <Button>
+                        <Typography variant='body2' sx={{opacity : 0.7}}>
+                          <Share/>
+                          Share
+                        </Typography>
+                    </Button>
+
                   </Typography>
+                      <Button>
+                        <Typography variant='body2' sx={{opacity : 0.7}}>
+                          <Download/>
+                          Download
+                        </Typography>
+                      </Button>
+                  <Typography>
+                      <Button>
+                        <Typography variant='body2' sx={{opacity : 0.7}}>
+                          <SaveAlt/>
+                          Save
+                        </Typography>
+                      </Button>
+                  </Typography>
+                  
+
+                  
                 </Stack>
             </Stack>
           </Box>
