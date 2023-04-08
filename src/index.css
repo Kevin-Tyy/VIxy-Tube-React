@@ -36,8 +36,9 @@ a {
 }
 
 .react-player {
-  height: 77vh !important;
-  width: 100% !important;
+  height: 70vh !important;
+  width: 90% !important;
+  margin: auto;
 }   
 
 .search-bar{
@@ -64,9 +65,17 @@ a {
   transition: all 0.3s ease;
 }
 
+@media screen and (max-width : 1300px ){
+  .react-player{
+    height: 60vh !important;
+  }
+}
 @media screen and (max-width: 900px) {
   .category-btn{
     margin: 10px;
+  }
+  .react-player{
+    height: 50vh !important;
   }
 }
 

@@ -4,7 +4,7 @@ import ReactPlayer from 'react-player'
 import { Box, Stack, Typography } from '@mui/material'
 import { CheckCircle } from '@mui/icons-material'
 
-import { Video, Videos } from './'
+import { Loader,  Videos } from './'
 import { fetchFromAPI } from '../utils/FetchFromApi'
 
 const VideoDetails = () => {
@@ -25,18 +25,18 @@ const VideoDetails = () => {
   }, []);
   
   if(!videoDetail?.snippet){
-    return 'loading...'
+    return <Loader/>
   }
   
 
   const { snippet : { title, channelId, channelTitle}, statistics : { viewCount , likeCount}} = videoDetail
   console.log(videoDetail)
   return (
-    <Box minHeight={'95vh'}>
+    <Box minHeight={'95vh'} width={{ sx : 0, lg : '95%'}} ml= {{ sx : 0 , lg : '100px'}} >
       <Stack direction={{ xs : 'column' , md : 'row'}}>
         <Box flex={1}>
           <Box sx={{width : '100%', position : 'sticky' , top: '86px'}}>
-            <ReactPlayer url={`${WATCH_URL}?v=${id}`} className="react-player" controls/>
+            <ReactPlayer url={`${WATCH_URL}?v=${id}`} className="react-player" controls playing={true} muted={false}/>
             <Typography color={'#fff'} variant='h6' fontWeight='bold' p={2}>
               {title} 
             </Typography>
@@ -52,6 +52,7 @@ const VideoDetails = () => {
                 <Stack direction={'row'} gap="20px" alignItems="center">
                   <Typography variant='body2' sx={{opacity : 0.7}}>
                     {parseInt(viewCount).toLocaleString()} views
+                    
                   </Typography>
 
                   <Typography variant='body2' sx={{opacity : 0.7}}>
@@ -62,7 +63,10 @@ const VideoDetails = () => {
           </Box>
         </Box>
         <Box px={2} py={{md : 1 , xs : 5}} justifyContent='center' alignItems='center'>
-          <Videos videos={videos} direction="column"/>
+          <Typography variant='h6' sx={{ color : '#f9f9f9', mb : '10px'}}>
+            Related Videos
+          </Typography>
+          <Videos videos={videos} direction="column" marginRight={'100px'}/>
         </Box>
       </Stack>
 

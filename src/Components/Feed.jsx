@@ -25,8 +25,9 @@ const Feed = () => {
             setSelectedCategory={setSelectdeCategory}
           ></Sidebar>
 
-          <Typography className="copyright"  variant='body2' sx={{mt : 1.5,color : '#fff'}}>
-              Copyright 2023 Kevin Frontend
+          <Typography className="copyright"  variant='body2' sx={{ my : 2,color : '#fff'}}>
+              Copyright © 2023 Kevin Frontend<br />
+              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;All rights reserved
           </Typography>
         </Box>
         <Box p={2} sx={{overflowY : 'auto', height: '90vh', flex: 2}}>
