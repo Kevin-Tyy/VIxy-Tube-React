@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { Paper, Button } from "@mui/material";
-import { Search } from "@mui/icons-material";
+import { Paper, Button, IconButton, Box, Tooltip } from "@mui/material";
+import { MicOutlined, Search } from "@mui/icons-material";
 const SearchBar = () => {
 
 	const [searchTerm , setSearchTerm] = useState('');
@@ -17,6 +17,7 @@ const SearchBar = () => {
 		}
 	}
 	return (
+		<Box sx={{ display : 'flex' , alignItems : 'center' , justifyContent : 'center'}}>
 		<Paper
 			component="form"
 			onSubmit={handleSubmit}
@@ -26,7 +27,8 @@ const SearchBar = () => {
 				pl: 2,
 				boxShadow: "none",
 				mr: { sm: 5 },
-				backgroundColor: '#000'
+				backgroundColor: 'transparent',
+				height: "40px",
 			}}>
 			
         <input
@@ -34,14 +36,21 @@ const SearchBar = () => {
           placeholder="search..."
           value={searchTerm}
           onChange={(e)=> setSearchTerm(e.target.value)}
-		  style={{fontSize : '15px', color: 'white'}}
+		  style={{fontSize : '12px', color: 'white'}}
         />
 
-        <Button type="submit" sx={{p : '10px', borderRadius : '0 50px 50px 0' }} >
+        <Button type="submit" sx={{p : '10px', borderRadius : '0 50px 50px 0' ,color : '#ffffff5d' ,height : '100%', backgroundColor : '#ffffff2d !important'}} >
           <Search/>
         </Button>
-				
 		</Paper>
+		<Tooltip title="Search with Your Voice" arrow>
+
+			<IconButton sx={{color : '#fff' , backgroundColor : '#ffffff1d' ,ml:'-20px'}} className="icon-button">
+				<MicOutlined />
+
+			</IconButton>
+		</Tooltip>
+		</Box>
 	);
 };
 

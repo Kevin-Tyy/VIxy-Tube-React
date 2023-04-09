@@ -1,8 +1,10 @@
 import React , {useState , useEffect}from 'react'
 import { Link , useParams } from 'react-router-dom'
 import ReactPlayer from 'react-player'
-import { Box, Button, IconButton, Stack, Typography } from '@mui/material'
-import { CheckCircle, Download, SaveAlt, Share, ThumbDownAltSharp, ThumbUpRounded } from '@mui/icons-material'
+import { Box, Button, Stack, Typography } from '@mui/material'
+import { CheckCircle, DownloadOutlined,  SaveAlt,ShareOutlined,  ThumbUpAltOutlined, ThumbDownAltOutlined } from '@mui/icons-material'
+import Tooltip from '@mui/material/Tooltip';
+import MoreHorizIcon from '@mui/icons-material/MoreHoriz';
 
 import { Loader,  Videos } from './'
 import { fetchFromAPI } from '../utils/FetchFromApi'
@@ -41,63 +43,71 @@ const VideoDetails = () => {
               {title} 
             </Typography>
             <Stack direction="row" justifyContent="space-between" sx={{color : "#fff"}} py={1} px={2}>
-                <Link to={`/channel/${channelId}`}>
-                  
-                  <Typography variant={{sm : 'body2', md : 'h6'}}
-                    color="#fff"
-                  >
-                    {channelTitle}
-                    <CheckCircle sx={{fontSize: '12px', color: 'gray', ml: '5px'}}/>
-                  </Typography>
-                </Link>
-                <Stack direction={'row'} gap="20px" alignItems="center">
-                  <Typography variant='body2' sx={{opacity : 0.7}}>
-                    {parseInt(viewCount).toLocaleString()} views
-            
-                  </Typography>
-                  <Box sx={{backgroundColor : '#ffffff4d', borderRadius : '50px'}}>
-                    <Box sx={{ p: 2 , borderRight : '2px solid #fff'}}>
-                      <Typography variant='body2' sx={{opacity : 0.7}}>
-                        <IconButton sx={{ color : 'white'}}>
-                          <ThumbDownAltSharp/>
-                        </IconButton>
-                        {parseInt(likeCount).toLocaleString()} likes
-                      </Typography>
-
-                    </Box>
-                    <IconButton sx={{ color : 'white'}}>
-                      <ThumbDownAltSharp/>
-                    </IconButton>
-                    
-                  </Box>
-
-                  <Typography>
-                    <Button>
-                        <Typography variant='body2' sx={{opacity : 0.7}}>
-                          <Share/>
-                          Share
-                        </Typography>
+              <Link to={`/channel/${channelId}`}>
+                
+                <Typography variant={{sm : 'body2', md : 'h6'}}
+                  color="#fff"
+                >
+                  {channelTitle}
+                  <CheckCircle sx={{fontSize: '12px', color: 'gray', ml: '5px'}}/>
+                </Typography>
+              </Link>
+              <Stack direction={'row'} gap="10px" alignItems="center">
+                <Typography variant='body2' sx={{opacity : 0.7}}>
+                  {parseInt(viewCount).toLocaleString()} views
+          
+                </Typography>
+                <Box sx={{backgroundColor : '#ffffff1d', borderRadius : '50px' , display : 'flex' ,px : '3px', height : '35px' ,  justifyContent : 'center' , alignItems : 'center'}}>
+                  <Tooltip title="I like this" arrow>
+                    <Typography variant='body2' sx={{opacity : 0.7}}>
+                      <Button sx={{ color : 'white' , borderRadius : '50px 0 0 50px'}}>
+                        <ThumbUpAltOutlined fontSize='small'/> &nbsp;&nbsp;
+                        {parseInt(likeCount).toLocaleString()}
+                      </Button>
+                      
+                    </Typography>
+                  </Tooltip>  
+                  <Tooltip title="I dislike this" arrow>
+                    <Button sx={{ color : 'white' ,  borderLeft : '1px solid #ffffff2d', borderRadius : '0 50px 50px 0' ,height : '90% '}}>
+                      <ThumbDownAltOutlined fontSize='small'/>
                     </Button>
 
-                  </Typography>
-                      <Button>
-                        <Typography variant='body2' sx={{opacity : 0.7}}>
-                          <Download/>
-                          Download
-                        </Typography>
-                      </Button>
-                  <Typography>
-                      <Button>
-                        <Typography variant='body2' sx={{opacity : 0.7}}>
-                          <SaveAlt/>
-                          Save
-                        </Typography>
-                      </Button>
-                  </Typography>
+                  </Tooltip>
                   
+                </Box>
+                <Tooltip title="Share" arrow>
 
+                  <Button className='video-detail-btns'>
+                      <ShareOutlined fontSize='small'/>&nbsp;&nbsp;
+                      <Typography variant='body2' sx={{opacity : 0.7}}>
+                        Share
+                      </Typography>
+                  </Button>
+                </Tooltip>
+                <Tooltip title="Download" arrow>
+                  <Button className='video-detail-btns'>
+                    <DownloadOutlined fontSize='small'/>&nbsp;&nbsp;
+                    <Typography variant='body2' sx={{opacity : 0.7}}>
+                      Download
+                    </Typography>
+                  </Button>
                   
-                </Stack>
+                </Tooltip>
+                <Tooltip title="Save" arrow>
+                  <Button className='video-detail-btns'>
+                    <SaveAlt fontSize='small'/>&nbsp;&nbsp;
+                    <Typography variant='body2' sx={{opacity : 0.7}}>
+                      Save
+                    </Typography>
+                  </Button>                  
+
+                </Tooltip>
+                <Tooltip title="more">
+                  <Button className='video-detail-btns' sx={{ width : '20px !important'}}>
+                    <MoreHorizIcon/>
+                  </Button>
+                </Tooltip>
+              </Stack>
             </Stack>
           </Box>
         </Box>
