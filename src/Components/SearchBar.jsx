@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { Paper, IconButton } from "@mui/material";
+import { Paper, Button } from "@mui/material";
 import { Search } from "@mui/icons-material";
 const SearchBar = () => {
 
@@ -21,11 +21,12 @@ const SearchBar = () => {
 			component="form"
 			onSubmit={handleSubmit}
 			sx={{
-				borderRadius: 20,
-				border: "1px solid #e3e3e3",
+				borderRadius: 50,
+				border: "1px solid rgb(87, 87, 87)",
 				pl: 2,
 				boxShadow: "none",
 				mr: { sm: 5 },
+				backgroundColor: '#000'
 			}}>
 			
         <input
@@ -33,10 +34,13 @@ const SearchBar = () => {
           placeholder="search..."
           value={searchTerm}
           onChange={(e)=> setSearchTerm(e.target.value)}
+		  style={{fontSize : '15px', color: 'white'}}
         />
-        <IconButton type="submit" sx={{p : '10px', color : 'red'}}>
+
+        <Button type="submit" sx={{p : '10px', borderRadius : '0 50px 50px 0' }} >
           <Search/>
-        </IconButton>
+        </Button>
+				
 		</Paper>
 	);
 };

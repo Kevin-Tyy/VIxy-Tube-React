@@ -45,6 +45,10 @@ a {
   border:none;
   outline:none;
   width:350px;
+  background-color: #000;
+}
+.button {
+  border-radius: 0 50px 50px 0;
 }
 
 .category-btn{
