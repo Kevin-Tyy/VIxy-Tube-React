@@ -11,8 +11,8 @@ import { fetchFromAPI } from '../utils/FetchFromApi'
 
 const VideoDetails = () => {
   const [videoDetail, setVideoDetail] = useState(null);
-  let [videos, setVideos] = useState(null);
-
+  const [videos, setVideos] = useState(null);
+  const [Subscribe , setSubscribe] = useState("Subscribe"); 
   const { id } = useParams()
   const WATCH_URL = 'https://www.youtube.com/watch';
 
@@ -37,30 +37,37 @@ const VideoDetails = () => {
     <Box minHeight={'95vh'} width={{ sx : 0, lg : '95%'}} ml= {{ sx : 0 , lg : '100px'}} >
       <Stack direction={{ xs : 'column' , md : 'row'}}>
         <Box flex={1}>
-          <Box sx={{width : '100%', position : 'sticky' , top: '86px'}}>
+          <Box sx={{width : '100%', position : 'sticky' , top: '86px', overflowY : 'scroll'}}>
             <ReactPlayer url={`${WATCH_URL}?v=${id}`} className="react-player" controls playing={true} muted={false}/>
             <Typography color={'#fff'} variant='h6' fontWeight='bold' p={2}>
               {title} 
             </Typography>
             <Stack direction="row" justifyContent="space-between" sx={{color : "#fff"}} py={1} px={2}>
-              <Link to={`/channel/${channelId}`}>
-                
-                <Typography variant={{sm : 'body2', md : 'h6'}}
-                  color="#fff"
-                >
-                  {channelTitle}
-                  <CheckCircle sx={{fontSize: '12px', color: 'gray', ml: '5px'}}/>
-                </Typography>
-              </Link>
+              <Box>
+                <Link to={`/channel/${channelId}`}>
+                  
+                  <Typography variant={{sm : 'body2', md : 'h6'}}
+                    color="#fff"
+                  >
+                    {channelTitle}
+                    <CheckCircle sx={{fontSize: '12px', color: 'gray', ml: '5px'}}/>
+                  </Typography>
+                </Link>
+                <Button sx={{ color: 'white' , backgroundColor: '#ffffff5d' , "&:hover": { backgroundColor : '#ffffff6d'   }}} onClick={()=> { setSubscribe("Subscribed")}}>
+                  {Subscribe}
+                </Button> 
+
+              </Box>
+
               <Stack direction={'row'} gap="10px" alignItems="center">
                 <Typography variant='body2' sx={{opacity : 0.7}}>
                   {parseInt(viewCount).toLocaleString()} views
           
                 </Typography>
-                <Box sx={{backgroundColor : '#ffffff1d', borderRadius : '50px' , display : 'flex' ,px : '3px', height : '35px' ,  justifyContent : 'center' , alignItems : 'center'}}>
+                <Box sx={{ borderRadius : '50px' , display : 'flex', height : '35px' ,  justifyContent : 'center' , alignItems : 'center'}}>
                   <Tooltip title="I like this" arrow>
                     <Typography variant='body2' sx={{opacity : 0.7}}>
-                      <Button sx={{ color : 'white' , borderRadius : '50px 0 0 50px'}}>
+                      <Button sx={{ color : 'white' , borderRadius : '50px 0 0 50px !important'}} className='video-detail-btns'>
                         <ThumbUpAltOutlined fontSize='small'/> &nbsp;&nbsp;
                         {parseInt(likeCount).toLocaleString()}
                       </Button>
@@ -68,7 +75,7 @@ const VideoDetails = () => {
                     </Typography>
                   </Tooltip>  
                   <Tooltip title="I dislike this" arrow>
-                    <Button sx={{ color : 'white' ,  borderLeft : '1px solid #ffffff2d', borderRadius : '0 50px 50px 0' ,height : '90% '}}>
+                    <Button sx={{ color : 'white' ,  borderLeft : '1px solid #ffffff1d', height : '35px',borderRadius : '0 50px 50px 0 !important'  }} className='video-detail-btns'>
                       <ThumbDownAltOutlined fontSize='small'/>
                     </Button>
 
@@ -102,13 +109,14 @@ const VideoDetails = () => {
                   </Button>                  
 
                 </Tooltip>
-                <Tooltip title="more">
-                  <Button className='video-detail-btns' sx={{ width : '20px !important'}}>
+                <Tooltip title="more" arrow>
+                  <Button className='video-detail-btns'>
                     <MoreHorizIcon/>
                   </Button>
                 </Tooltip>
               </Stack>
             </Stack>
+          <h1 style={{color : 'white'}}>Hellp</h1>
           </Box>
         </Box>
         <Box px={2} py={{md : 1 , xs : 5}} justifyContent='center' alignItems='center'>

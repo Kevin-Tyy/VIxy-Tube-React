@@ -36,7 +36,7 @@ a {
 
 .react-player {
   height: 70vh !important;
-  width: 90% !important;
+  width: 100% !important;
   margin: auto;
 }   
 
@@ -54,6 +54,10 @@ a {
   text-transform: lowercase !important;
   background-color: #ffffff1d !important;
   border-radius: 50px !important;
+  height: 35px !important;
+}
+.video-detail-btns:hover{
+  background-color: #ffffff3d !important;
 }
 
 .icon-button:hover{
