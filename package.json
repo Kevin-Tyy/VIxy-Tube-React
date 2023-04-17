@@ -1,5 +1,5 @@
 {
-  "name": "to-do-app",
+  "name": "vixy-tube",
   "version": "0.1.0",
   "scripts": {
     "build": "react-scripts build",

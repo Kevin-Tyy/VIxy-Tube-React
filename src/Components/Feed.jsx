@@ -25,12 +25,12 @@ const Feed = () => {
             setSelectedCategory={setSelectdeCategory}
           ></Sidebar>
 
-          <Typography className="copyright"  variant='body2' sx={{ my : 2,color : '#fff'}}>
+          <Typography className="copyright"  variant='body2' sx={{ my : 2,color : '#ffffff5d'}}>
               Copyright © 2023 Kevin Frontend<br />
               &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;All rights reserved
           </Typography>
         </Box>
-        <Box p={2} sx={{overflowY : 'auto', height: '90vh', flex: 2}}>
+        <Box p={2} sx={{overflowY : 'auto', height: '91vh', flex: 2}}>
           <Typography variant='h4' fontWeight="bold" mb={2} sx={{color : "white"}}>
 
             {selectedCategory}

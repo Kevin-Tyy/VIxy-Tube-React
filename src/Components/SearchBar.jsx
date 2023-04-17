@@ -22,13 +22,14 @@ const SearchBar = () => {
 			component="form"
 			onSubmit={handleSubmit}
 			sx={{
-				borderRadius: 50,
-				border: "1px solid rgb(87, 87, 87)",
+				borderRadius: '50px',
+				border: "1px solid #ffffff3d",
 				pl: 2,
 				boxShadow: "none",
 				mr: { sm: 5 },
 				backgroundColor: 'transparent',
 				height: "40px",
+				width: '500px'
 			}}>
 			
         <input
@@ -39,9 +40,9 @@ const SearchBar = () => {
 		  style={{fontSize : '12px', color: 'white'}}
         />
 
-        <Button type="submit" sx={{p : '10px', borderRadius : '0 50px 50px 0' ,color : '#ffffff5d' ,height : '100%', backgroundColor : '#ffffff2d !important'}} >
-          <Search/>
-        </Button>
+			<Button type="submit" sx={{p : '10px', borderRadius : '0 50px 50px 0' ,color : '#ffffff4d' ,height : '100%', backgroundColor : '#ffffff2d !important'}} >
+				<Search/>
+			</Button>
 		</Paper>
 		<Tooltip title="Search with Your Voice" arrow>
 
