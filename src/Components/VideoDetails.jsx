@@ -9,7 +9,6 @@ import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import Accordion from '@mui/material/Accordion';
 import AccordionSummary from '@mui/material/AccordionSummary';
 import AccordionDetails from '@mui/material/AccordionDetails';
-import AccountCircle from '@mui/icons-material/AccountCircle';  
 import TextField from '@mui/material/TextField';
 
 import { Loader,  Videos } from './'
@@ -19,7 +18,7 @@ const VideoDetails = () => {
   const [videoDetail, setVideoDetail] = useState(null);
   const [videos, setVideos] = useState(null);
   const [Subscribe , setSubscribe] = useState("Subscribe"); 
-  const { id } = useParams()
+  const { id } = useParams();
   const WATCH_URL = 'https://www.youtube.com/watch';
 
   useEffect(()=>{
