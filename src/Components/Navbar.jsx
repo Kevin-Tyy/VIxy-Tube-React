@@ -19,8 +19,8 @@ const Navbar = () => (
 		}}>
       <Link to="/" style={{display: "flex", alignItems : "center"}}>
         {/* <img src={logo} alt="logo" height={40}/> */}
-		<YouTube fontSize="large" sx={{ color : '#1b37b4'}}/>
-		<Typography sx={{color : '#fff'}}>
+		<YouTube fontSize="large" sx={{ color : '#1b37b4' , mr: '10px '}}/>
+		<Typography variant="h6" sx={{color : '#fff'}}>
 			Vixy<span style={{color : '#1b37b4'}}>Tube</span>
 		</Typography>
       </Link>
