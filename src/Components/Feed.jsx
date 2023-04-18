@@ -13,7 +13,7 @@ const Feed = () => {
     fetchFromAPI(`search?part=snippet&q=${selectedCategory}&type=video,channel`)
       .then((data)=>
         setVideos(data.items)
-      )
+    )
 
     
   }, [selectedCategory])
@@ -44,4 +44,4 @@ const Feed = () => {
   )
 }
 
-export default Feed
+export default Feed;

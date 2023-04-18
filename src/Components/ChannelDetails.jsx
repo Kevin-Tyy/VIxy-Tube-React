@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
-import { Box } from "@mui/material";
+import { Box, Typography } from "@mui/material";
 
 import { Videos, ChannelCard } from "./";
 import { fetchFromAPI } from "../utils/FetchFromApi";
@@ -32,7 +32,10 @@ const ChannelDetails = () => {
           />
             {channelDetail && <ChannelCard channelDetail={channelDetail} marginTop="-110px"/>}
         </Box>
-        <Box display="" p="2" sx={{ml: { sm : '100px'}}}>
+        <Box>
+          <Typography variant="h4" sx={{ color : '#fff', textAlign : "center"}}>
+            More Videos from {channelDetail.snippet?.title} 
+          </Typography>
           <Videos videos={videos} />
         </Box>
       </Box>  

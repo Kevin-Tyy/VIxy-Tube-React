@@ -9,6 +9,8 @@ import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import Accordion from '@mui/material/Accordion';
 import AccordionSummary from '@mui/material/AccordionSummary';
 import AccordionDetails from '@mui/material/AccordionDetails';
+import AccountCircle from '@mui/icons-material/AccountCircle';  
+import TextField from '@mui/material/TextField';
 
 import { Loader,  Videos } from './'
 import { fetchFromAPI } from '../utils/FetchFromApi'
@@ -36,14 +38,14 @@ const VideoDetails = () => {
   }
   
 
-  const { snippet : { title, channelId, channelTitle, publishedAt}, statistics : { viewCount , likeCount}} = videoDetail
+  const { snippet : { title, channelId, channelTitle}, statistics : { viewCount , likeCount, commentCount}} = videoDetail
 
   console.log(videoDetail)
   return (
-    <Box minHeight={'95vh'} width={{ sx : 0, lg : '90%'}} ml= {{ sx : 0 , lg : '100px'}} >
+    <Box minHeight={'95vh'} width={{ sx : 0, lg : '90%' }} ml= {{ sx : 0 , lg : '150px'}}>
       <Stack direction={{ xs : 'column' , md : 'row'}}>
         <Box flex={1}>
-          <Box sx={{width : '98%'  , top: '86px', overflowY : 'scroll'}}>
+          <Box sx={{width : '98%'  , top: '86px', position : 'sticky'}}>
             <ReactPlayer url={`${WATCH_URL}?v=${id}`} className="react-player" controls playing={true} muted={false}/>
             <Typography color={'#fff'} variant='h6' fontWeight='bold' p={2}>
               {title} 
@@ -70,9 +72,9 @@ const VideoDetails = () => {
             
                 <Box sx={{ borderRadius : '50px' , display : 'flex', height : '35px' ,  justifyContent : 'center' , alignItems : 'center'}}>
                   <Tooltip title="I like this" arrow>
-                    <Button sx={{ borderRadius : '50px 0 0 50px !important'}} className='video-detail-btns'>
+                    <Button sx={{ borderRadius : '50px 0 0 50px !important',p : '10px'}} className='video-detail-btns'>
                       <Typography variant='body2' sx={{opacity : 0.7}}>
-                        <ThumbUpAltOutlined fontSize='small'/> &nbsp;&nbsp;
+                        <ThumbUpAltOutlined fontSize='small' sx={{pt : '20px'}}/> &nbsp;&nbsp;
                         {parseInt(likeCount).toLocaleString()}
                       </Typography>
                     </Button>
@@ -87,7 +89,6 @@ const VideoDetails = () => {
         
                 </Box>
                 <Tooltip title="Share" arrow>
-
                   <Button className='video-detail-btns'>
                       <ShareOutlined fontSize='small'/>&nbsp;&nbsp;
                       <Typography variant='body2' sx={{opacity : 0.7}}>
@@ -121,8 +122,8 @@ const VideoDetails = () => {
               </Stack>
             </Stack>
    
-            <Accordion sx={{backgroundColor : '#ffffff1d' , color: '#fff', borderRadius : '10px' ,mt : '20px'}}>
-              <AccordionSummary  expandIcon={<ExpandMoreIcon sx={{ color : '#fff' , height : '70px'}}/>}>
+            <Accordion sx={{backgroundColor : '#ffffff1d' , color: '#fff', borderRadius : '10px' ,mt : '20px', p: '10px'}}>
+              <AccordionSummary  expandIcon={<ExpandMoreIcon sx={{ color : '#fff' , height : '50px', pb : '10px'}}/>}>
                 <Typography sx={{ mr : '20px'}}>
                   {parseInt(viewCount).toLocaleString()} views
                 </Typography>
@@ -137,15 +138,24 @@ const VideoDetails = () => {
                 </Typography>
               </AccordionDetails>
             </Accordion>
+            <Typography sx={{color : '#fff'}}>
+              {commentCount} Comments
+            </Typography>
+  
+            <Box sx={{ display: 'flex', alignItems: 'flex-end' }}>
+              <AccountCircle sx={{ color: 'action.active', mr: 1, my: 0.5 }} />
+              <TextField id="input-with-sx" label="Add your comment" variant="standard" sx={{my: "20px" ,py : '10px', width: '100%', color : '#fff'}}/>
+            </Box>
+
           </Box>
         </Box>
-        <Box px={2} py={{md : 1 , xs : 5}} justifyContent='center' alignItems='center'>
+        <Box px={2} py={{md : 1 , xs : 5}} justifyContent='center' alignItems='center' sx={{ overflowY : 'auto' }}>
           <Typography variant='h6' sx={{ color : '#f9f9f9', mb : '10px'}}>
             Related Videos
           </Typography> 
           <Videos videos={videos} direction="column" marginRight={'100px'} />
         </Box>
-      </Stack>
+      </Stack>  
 
     </Box>
   )
