@@ -14,6 +14,7 @@ import DeveloperModeIcon from '@mui/icons-material/DeveloperMode';
 import BusinessCenter  from '@mui/icons-material/BusinessCenter';
 import Engineering  from '@mui/icons-material/Engineering';
 import QuestionMark  from '@mui/icons-material/QuestionMark';
+import { SportsSoccerSharp, SurfingRounded } from '@mui/icons-material';
 export const logo = 'https://i.ibb.co/s9Qys2j/logo.png';
 
 export const categories = [
@@ -36,6 +37,8 @@ export const categories = [
   { name: 'Crypto', icon: <DeveloperModeIcon />, }, 
   { name: 'Business', icon: <BusinessCenter />, },
   { name: 'Engineering', icon: <Engineering />, },
+  { name: 'Football', icon: <SportsSoccerSharp/>, },
+  { name: 'Leisure' , icon : <SurfingRounded/>, },
 ];
 
 export const demoThumbnailUrl = 'https://i.ibb.co/G2L2Gwp/API-Course.png';
