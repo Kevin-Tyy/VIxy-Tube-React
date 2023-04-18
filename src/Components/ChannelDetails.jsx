@@ -34,7 +34,7 @@ const ChannelDetails = () => {
         </Box>
         <Box>
           <Typography variant="h4" sx={{ color : '#fff', textAlign : "center"}}>
-            More Videos from {channelDetail.snippet?.title} 
+            {/* More Videos from {channelDetail.snippet?.title}    */}
           </Typography>
           <Videos videos={videos} />
         </Box>

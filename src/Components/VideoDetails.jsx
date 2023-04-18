@@ -73,8 +73,8 @@ const VideoDetails = () => {
                 <Box sx={{ borderRadius : '50px' , display : 'flex', height : '35px' ,  justifyContent : 'center' , alignItems : 'center'}}>
                   <Tooltip title="I like this" arrow>
                     <Button sx={{ borderRadius : '50px 0 0 50px !important',p : '10px'}} className='video-detail-btns'>
+                      <ThumbUpAltOutlined fontSize='small' sx={{mt: '15px'}}/> &nbsp;&nbsp;
                       <Typography variant='body2' sx={{opacity : 0.7}}>
-                        <ThumbUpAltOutlined fontSize='small' sx={{pt : '20px'}}/> &nbsp;&nbsp;
                         {parseInt(likeCount).toLocaleString()}
                       </Typography>
                     </Button>
@@ -122,7 +122,7 @@ const VideoDetails = () => {
               </Stack>
             </Stack>
    
-            <Accordion sx={{backgroundColor : '#ffffff1d' , color: '#fff', borderRadius : '10px' ,mt : '20px', p: '10px'}}>
+            <Accordion sx={{backgroundColor : '#ffffff1d' , color: '#fff', borderRadius : '10px' ,my : '20px', py: '10px'}}>
               <AccordionSummary  expandIcon={<ExpandMoreIcon sx={{ color : '#fff' , height : '50px', pb : '10px'}}/>}>
                 <Typography sx={{ mr : '20px'}}>
                   {parseInt(viewCount).toLocaleString()} views
@@ -134,7 +134,7 @@ const VideoDetails = () => {
               </AccordionSummary>
               <AccordionDetails>
                 <Typography>
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore veniam explicabo neque quam dolorum, sint sequi sunt quo quod reprehenderit sapiente ratione saepe aliquid enim minus ad? Voluptate iste quo error ut commodi molestiae repellendus deleniti enim facilis dignissimos expedita porro beatae quisquam tempore, debitis nihil architecto officiis, rerum nostrum!
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus qui, impedit dolorum reprehenderit id hic voluptatem harum omnis minima quos labore autem perferendis consectetur incidunt beatae aspernatur! Dolor, sunt ratione eveniet labore porro quibusdam dolorem totam harum facilis velit modi veritatis perferendis ad dolores adipisci nemo eum iste iure explicabo est saepe. Dicta sed voluptas voluptates esse repudiandae et deserunt.
                 </Typography>
               </AccordionDetails>
             </Accordion>
@@ -143,8 +143,8 @@ const VideoDetails = () => {
             </Typography>
   
             <Box sx={{ display: 'flex', alignItems: 'flex-end' }}>
-              <AccountCircle sx={{ color: 'action.active', mr: 1, my: 0.5 }} />
-              <TextField id="input-with-sx" label="Add your comment" variant="standard" sx={{my: "20px" ,py : '10px', width: '100%', color : '#fff'}}/>
+              <Avatar>J</Avatar>
+              <TextField id="input-with-sx" label="Add your comment" variant="standard" sx={{my: "20px" ,py : '10px', width: '100% !important', color : '#fff !important', }}/>
             </Box>
 
           </Box>
