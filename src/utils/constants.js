@@ -14,7 +14,7 @@ import DeveloperModeIcon from '@mui/icons-material/DeveloperMode';
 import BusinessCenter  from '@mui/icons-material/BusinessCenter';
 import Engineering  from '@mui/icons-material/Engineering';
 import QuestionMark  from '@mui/icons-material/QuestionMark';
-import { SportsSoccerSharp, SurfingRounded } from '@mui/icons-material';
+import { SportsBasketballSharp, SportsSoccerSharp, SurfingRounded } from '@mui/icons-material';
 export const logo = 'https://i.ibb.co/s9Qys2j/logo.png';
 
 export const categories = [
@@ -29,6 +29,7 @@ export const categories = [
   { name: 'Movie', icon: <OndemandVideoIcon />, },
   { name: 'Gaming', icon: <SportsEsportsIcon />, },
   { name: 'Live', icon: <LiveTvIcon />, },
+  { name: 'NBA', icon: <SportsBasketballSharp/> , }, 
   { name: 'Sport', icon: <FitnessCenterIcon />, },
   { name: 'Fashion', icon: <CheckroomIcon />, },
   { name: 'Beauty', icon: <FaceRetouchingNaturalIcon />, },

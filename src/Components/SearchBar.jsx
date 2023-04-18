@@ -29,7 +29,7 @@ const SearchBar = () => {
 				mr: { sm: 5 },
 				backgroundColor: 'transparent',
 				height: "40px",
-				width: '550px'
+				width: {sm : '300px', md: '550px'}
 				
 			}}>
 			
@@ -38,7 +38,7 @@ const SearchBar = () => {
           placeholder="search..."
           value={searchTerm}
           onChange={(e)=> setSearchTerm(e.target.value)}
-		  style={{fontSize : '12px', color: 'white'}}
+		  style={{fontSize : '12px', color: 'white' , width : { sx : '70%'}}}
         />
 
 			<Button type="submit" sx={{p : '10px', borderRadius : '0 50px 50px 0' ,color : '#ffffff4d' ,height : '100%', backgroundColor : '#ffffff2d !important'}} >
@@ -47,7 +47,7 @@ const SearchBar = () => {
 		</Paper>
 		<Tooltip title="Search with Your Voice" arrow>
 
-			<IconButton sx={{color : '#fff' , backgroundColor : '#ffffff1d' ,ml:'-20px'}} className="icon-button">
+			<IconButton sx={{color : '#fff' , backgroundColor : '#ffffff1d' ,ml: { sx : '100px' , md : '-20px' } }} className="icon-button">
 				<MicOutlined />
 
 			</IconButton>

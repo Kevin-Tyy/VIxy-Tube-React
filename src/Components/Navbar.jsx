@@ -11,7 +11,7 @@ const Navbar = () => (
 		alignItems="center"
 		p={0.7}
 		sx={{
-			position: "sticky",
+			position: { sx: 'relative' , md : 'sticky'},
 			backgroundColor: "#000",
 			top: 0,
 			justifyContent: "space-between",
@@ -20,7 +20,7 @@ const Navbar = () => (
       <Link to="/" style={{display: "flex", alignItems : "center"}}>
         {/* <img src={logo} alt="logo" height={40}/> */}
 		<YouTube fontSize="large" sx={{ color : '#1b37b4' , mr: '10px '}}/>
-		<Typography variant="h6" sx={{color : '#fff'}}>
+		<Typography variant="h6" sx={{color : '#fff' , display : { xs : 'none' , md : 'block'}}}>
 			Vixy<span style={{color : '#1b37b4'}}>Tube</span>
 		</Typography>
       </Link>
@@ -28,7 +28,7 @@ const Navbar = () => (
       <SearchBar/>
 	  <Box sx={{display : 'flex' , alignItems : 'center' , justifyContent: 'center'}}>
 		<Tooltip title="Create" arrow> 
-			<IconButton sx={{color : '#fff'  , mr: "15px" }} className="icon-button">
+			<IconButton sx={{color : '#fff'  , mr: "15px" , display : { xs : 'none' , md : 'block'}}} className="icon-button">
 				<VideoCallOutlined/>
 			</IconButton>
 		</Tooltip>

@@ -19,7 +19,7 @@ const Feed = () => {
   }, [selectedCategory])
   return (
       <Stack sx={{flexDirection : { sx : "column", md : "row"}}}>
-        <Box sx={{height : { sx : 'auto' , md : '92vh'}, borderRight : '1px solid #3d3d3d',px : {sx : 0, md : 2}}}>
+        <Box sx={{height : { sx : 'auto' , md : '93vh'}, borderRight : '1px solid #3d3d3d',px : {sx : 0, md : 2}}}>
           <Sidebar
             selectedCategory={selectedCategory}
             setSelectedCategory={setSelectdeCategory}
@@ -30,8 +30,8 @@ const Feed = () => {
               &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;All rights reserved
           </Typography>
         </Box>
-        <Box p={2} sx={{overflowY : 'auto', height: '91vh', flex: 2}}>
-          <Typography variant='h4' fontWeight="bold" mb={2} sx={{color : "white"}}>
+        <Box p={2} sx={{overflowY : 'auto', height: '93vh', flex: 2}}>
+          <Typography variant='h6' fontWeight="bold" mb={2} sx={{color : "white"}}>
 
             {selectedCategory}
 

@@ -1,7 +1,7 @@
 import React , {useState , useEffect}from 'react'
 import { Link , useParams } from 'react-router-dom'
 import ReactPlayer from 'react-player'
-import { Box, Button, Stack, Typography } from '@mui/material'
+import { Avatar, Box, Button, Stack, Typography } from '@mui/material'
 import { CheckCircle, DownloadOutlined,  SaveAlt,ShareOutlined,  ThumbUpAltOutlined, ThumbDownAltOutlined } from '@mui/icons-material'
 import Tooltip from '@mui/material/Tooltip';
 import MoreHorizIcon from '@mui/icons-material/MoreHoriz';
@@ -19,7 +19,7 @@ const VideoDetails = () => {
   const [videos, setVideos] = useState(null);
   const [Subscribe , setSubscribe] = useState("Subscribe"); 
   const { id } = useParams();
-  const WATCH_URL = 'https://www.youtube.com/watch';
+  const WATCH_URL = 'https://youtube.com/watch';
 
   useEffect(()=>{
     fetchFromAPI(`videos?part=snippet,statistics&id=${id}`)
@@ -41,15 +41,15 @@ const VideoDetails = () => {
 
   console.log(videoDetail)
   return (
-    <Box minHeight={'95vh'} width={{ sx : 0, lg : '90%' }} ml= {{ sx : 0 , lg : '150px'}}>
+    <Box minHeight={'95vh'} width={{ sx : 0, lg : '90%' }} ml= {{ sx : 0 , lg : '150px' }}>
       <Stack direction={{ xs : 'column' , md : 'row'}}>
-        <Box flex={1}>
-          <Box sx={{width : '98%'  , top: '86px', position : 'sticky'}}>
+        <Box flex={1} sx={{position : { sx: 'relative', md : 'sticky'} , top: '86px' ,zIndex : '999'}}>
+          <Box sx={{width : '98%', overflow : 'scroll'  }}>
             <ReactPlayer url={`${WATCH_URL}?v=${id}`} className="react-player" controls playing={true} muted={false}/>
             <Typography color={'#fff'} variant='h6' fontWeight='bold' p={2}>
               {title} 
             </Typography>
-            <Stack direction="row" justifyContent="space-between" sx={{color : "#fff"}} py={1} px={2}>
+            <Stack direction="row" justifyContent="space-between" sx={{ color : "#fff"}}  px={2}>
               <Box>
                 <Link to={`/channel/${channelId}`}>
                   
@@ -72,7 +72,7 @@ const VideoDetails = () => {
                 <Box sx={{ borderRadius : '50px' , display : 'flex', height : '35px' ,  justifyContent : 'center' , alignItems : 'center'}}>
                   <Tooltip title="I like this" arrow>
                     <Button sx={{ borderRadius : '50px 0 0 50px !important',p : '10px'}} className='video-detail-btns'>
-                      <ThumbUpAltOutlined fontSize='small' sx={{mt: '15px'}}/> &nbsp;&nbsp;
+                      <ThumbUpAltOutlined fontSize='small'/> &nbsp;&nbsp;
                       <Typography variant='body2' sx={{opacity : 0.7}}>
                         {parseInt(likeCount).toLocaleString()}
                       </Typography>
@@ -90,7 +90,7 @@ const VideoDetails = () => {
                 <Tooltip title="Share" arrow>
                   <Button className='video-detail-btns'>
                       <ShareOutlined fontSize='small'/>&nbsp;&nbsp;
-                      <Typography variant='body2' sx={{opacity : 0.7}}>
+                      <Typography variant='body2' sx={{opacity : 0.7 , display : { sm: 'none' , md : 'block'}}}>
                         Share
                       </Typography>
                   </Button>
@@ -98,7 +98,7 @@ const VideoDetails = () => {
                 <Tooltip title="Download" arrow>
                   <Button className='video-detail-btns'>
                     <DownloadOutlined fontSize='small'/>&nbsp;&nbsp;
-                    <Typography variant='body2' sx={{opacity : 0.7}}>
+                    <Typography variant='body2' sx={{opacity : 0.7 , display : { sm: 'none' , md : 'block'}}}>
                       Download
                     </Typography>
                   </Button>
@@ -107,7 +107,7 @@ const VideoDetails = () => {
                 <Tooltip title="Save" arrow>
                   <Button className='video-detail-btns'>
                     <SaveAlt fontSize='small'/>&nbsp;&nbsp;
-                    <Typography variant='body2' sx={{opacity : 0.7}}>
+                    <Typography variant='body2' sx={{opacity : 0.7 , display : { sm: 'none' , md : 'block'}}}>
                       Save
                     </Typography>
                   </Button>                  
@@ -141,14 +141,40 @@ const VideoDetails = () => {
               {commentCount} Comments
             </Typography>
   
-            <Box sx={{ display: 'flex', alignItems: 'flex-end' }}>
-              <Avatar>J</Avatar>
-              <TextField id="input-with-sx" label="Add your comment" variant="standard" sx={{my: "20px" ,py : '10px', width: '100% !important', color : '#fff !important',backgroundColor: '#ffd60a', border: '3px solid #001d3d' }}/>
+            <Box sx={{ display: 'flex', alignItems: 'center' , justifyContent : 'space-between'}}>
+              <Box sx={{ display: 'flex', alignItems: 'center', width: '85%'}}>
+                <Avatar sx={{mr: '10px'}}>J</Avatar>
+                <TextField id="input-with-sx"
+                label="Add your comment"
+                variant="standard" 
+                sx={{my: "20px" ,py : '10px', width: '100% !important', input : { color : 'white'}, label : { color : 'white'} }}
+                InputLabelProps={{
+                  sx: {
+                    color: "red",
+                    "&.Mui-focused": {
+                      color: "white",
+                    
+                    },
+                    
+                  },
+                }}
+                />
+
+              </Box>
+              <Box>
+                <Button sx={{ mr : '10px'}} className='video-detail-btns'>
+                  Cancel
+                </Button>
+                <Button sx={{}} className='video-detail-btns'>
+                  Send Comment
+                </Button>
+              </Box>
+              
             </Box>
 
           </Box>
         </Box>
-        <Box px={2} py={{md : 1 , xs : 5}} justifyContent='center' alignItems='center' sx={{ overflowY : 'auto' }}>
+        <Box px={2} py={{md : 1 , xs : 5}} justifyContent='center' alignItems='center'>
           <Typography variant='h6' sx={{ color : '#f9f9f9', mb : '10px'}}>
             Related Videos
           </Typography> 
