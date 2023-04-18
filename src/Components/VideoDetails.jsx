@@ -144,7 +144,7 @@ const VideoDetails = () => {
   
             <Box sx={{ display: 'flex', alignItems: 'flex-end' }}>
               <Avatar>J</Avatar>
-              <TextField id="input-with-sx" label="Add your comment" variant="standard" sx={{my: "20px" ,py : '10px', width: '100% !important', color : '#fff !important', }}/>
+              <TextField id="input-with-sx" label="Add your comment" variant="standard" sx={{my: "20px" ,py : '10px', width: '100% !important', color : '#fff !important',backgroundColor: '#ffd60a', border: '3px solid #001d3d' }}/>
             </Box>
 
           </Box>
