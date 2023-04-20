@@ -47,7 +47,7 @@ const SearchBar = () => {
 		</Paper>
 		<Tooltip title="Search with Your Voice" arrow>
 
-			<IconButton sx={{color : '#fff' , backgroundColor : '#ffffff1d' ,ml: { sx : '100px' , md : '-20px' } }} className="icon-button">
+			<IconButton sx={{color : '#fff' , backgroundColor : '#ffffff1d' ,ml: '-20px', display : { xs : 'none' , md : 'inline-flex'}}} className="icon-button">
 				<MicOutlined />
 
 			</IconButton>

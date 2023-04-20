@@ -15,12 +15,12 @@ const Navbar = () => (
 			backgroundColor: "#000",
 			top: 0,
 			justifyContent: "space-between",
-			zIndex: 999
+			zIndex: 99999999
 		}}>
       <Link to="/" style={{display: "flex", alignItems : "center"}}>
         {/* <img src={logo} alt="logo" height={40}/> */}
 		<YouTube fontSize="large" sx={{ color : '#1b37b4' , mr: '10px '}}/>
-		<Typography variant="h6" sx={{color : '#fff' , display : { xs : 'none' , md : 'block'}}}>
+		<Typography variant="h6" sx={{color : '#fff' , display : { xs : 'none' , md : 'inline-flex'}}} className="logo">
 			Vixy<span style={{color : '#1b37b4'}}>Tube</span>
 		</Typography>
       </Link>
@@ -28,12 +28,12 @@ const Navbar = () => (
       <SearchBar/>
 	  <Box sx={{display : 'flex' , alignItems : 'center' , justifyContent: 'center'}}>
 		<Tooltip title="Create" arrow> 
-			<IconButton sx={{color : '#fff'  , mr: "15px" , display : { xs : 'none' , md : 'block'}}} className="icon-button">
+			<IconButton sx={{color : '#fff'  , mr: "15px" , display : { xs : 'none' , md : 'inline-flex'}}} className="icon-button">
 				<VideoCallOutlined/>
 			</IconButton>
 		</Tooltip>
 		<Tooltip title="Notifications" arrow >
-			<IconButton  sx={{color : '#fff' , mr: "15px" }} className="icon-button">
+			<IconButton  sx={{color : '#fff' , mr: "15px" , display : { xs : 'none' , md : 'inline-flex'}}} className="icon-button">
 				<NotificationsNoneOutlined/>
 
 			</IconButton>

@@ -22,6 +22,7 @@ const VideoDetails = () => {
   const WATCH_URL = 'https://youtube.com/watch';
 
   useEffect(()=>{
+    
     fetchFromAPI(`videos?part=snippet,statistics&id=${id}`)
       .then((data)=> setVideoDetail(data.items[0]))
 
@@ -36,20 +37,19 @@ const VideoDetails = () => {
     return <Loader/>
   }
   
-
   const { snippet : { title, channelId, channelTitle}, statistics : { viewCount , likeCount, commentCount}} = videoDetail
 
-  console.log(videoDetail)
+
   return (
     <Box minHeight={'95vh'} width={{ sx : 0, lg : '90%' }} ml= {{ sx : 0 , lg : '150px' }}>
       <Stack direction={{ xs : 'column' , md : 'row'}}>
         <Box flex={1} sx={{position : { sx: 'relative', md : 'sticky'} , top: '86px' ,zIndex : '999'}}>
-          <Box sx={{width : '98%', overflow : 'scroll'  }}>
+          <Box sx={{width : '98%', overflow : 'scroll' , p : '3px'}}>
             <ReactPlayer url={`${WATCH_URL}?v=${id}`} className="react-player" controls playing={true} muted={false}/>
             <Typography color={'#fff'} variant='h6' fontWeight='bold' p={2}>
               {title} 
             </Typography>
-            <Stack direction="row" justifyContent="space-between" sx={{ color : "#fff"}}  px={2}>
+            <Stack  justifyContent="space-between" sx={{ color : "#fff", flexDirection : { sx : 'column' , md : 'row'}}}  px={2}>
               <Box>
                 <Link to={`/channel/${channelId}`}>
                   
@@ -90,7 +90,7 @@ const VideoDetails = () => {
                 <Tooltip title="Share" arrow>
                   <Button className='video-detail-btns'>
                       <ShareOutlined fontSize='small'/>&nbsp;&nbsp;
-                      <Typography variant='body2' sx={{opacity : 0.7 , display : { sm: 'none' , md : 'block'}}}>
+                      <Typography variant='body2' sx={{opacity : 0.7 , display : { xs: 'none' , md : 'block'}}}>
                         Share
                       </Typography>
                   </Button>
@@ -98,7 +98,7 @@ const VideoDetails = () => {
                 <Tooltip title="Download" arrow>
                   <Button className='video-detail-btns'>
                     <DownloadOutlined fontSize='small'/>&nbsp;&nbsp;
-                    <Typography variant='body2' sx={{opacity : 0.7 , display : { sm: 'none' , md : 'block'}}}>
+                    <Typography variant='body2' sx={{opacity : 0.7 , display : { xs: 'none' , md : 'block'}}}>
                       Download
                     </Typography>
                   </Button>
@@ -107,7 +107,7 @@ const VideoDetails = () => {
                 <Tooltip title="Save" arrow>
                   <Button className='video-detail-btns'>
                     <SaveAlt fontSize='small'/>&nbsp;&nbsp;
-                    <Typography variant='body2' sx={{opacity : 0.7 , display : { sm: 'none' , md : 'block'}}}>
+                    <Typography variant='body2' sx={{opacity : 0.7 , display : { xs: 'none' , md : 'block'}}}>
                       Save
                     </Typography>
                   </Button>                  
@@ -141,7 +141,7 @@ const VideoDetails = () => {
               {commentCount} Comments
             </Typography>
   
-            <Box sx={{ display: 'flex', alignItems: 'center' , justifyContent : 'space-between'}}>
+            <Stack sx={{ display: 'flex',alignItems: 'center' , justifyContent : 'space-between', flexDirection : { sx : "column", md : "row"}}}>
               <Box sx={{ display: 'flex', alignItems: 'center', width: '85%'}}>
                 <Avatar sx={{mr: '10px'}}>J</Avatar>
                 <TextField id="input-with-sx"
@@ -161,16 +161,16 @@ const VideoDetails = () => {
                 />
 
               </Box>
-              <Box>
-                <Button sx={{ mr : '10px'}} className='video-detail-btns'>
+              <Box sx={{ width : '300px'}}>
+                <Button sx={{ mr : '10px' , width : '45%', borderRadius : '10px !important'  }} className='video-detail-btns'>
                   Cancel
                 </Button>
-                <Button sx={{}} className='video-detail-btns'>
+                <Button sx={{ width : '45%' , borderRadius : '10px !important' , whiteSpace : 'nowrap' }} className='video-detail-btns'>
                   Send Comment
                 </Button>
               </Box>
               
-            </Box>
+            </Stack>
 
           </Box>
         </Box>

@@ -3,7 +3,6 @@ import { Stack , Box} from '@mui/material';
 import {VideoCard, ChannelCard, Playlist, Loader} from './'
 
 const Videos = ({videos, direction, marginRight}) => {
-    console.log(videos);
 
     if(!videos?.length){
       return <Loader/>
