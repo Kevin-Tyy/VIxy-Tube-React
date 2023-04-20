@@ -114,7 +114,7 @@ a {
     width: 30px !important;
   }
   .search-bar{
-    width: 232px ;
+    width: 242px ;
   }
 }
 
@@ -127,16 +127,16 @@ a {
     height: 45vh !important;
   }
   .search-bar{
-    width:200px;
+    width:230px;
   }
 }
 @media screen and (max-width: 500px) {
   .search-bar{
-    width: 150px;
+    width: 170px;
   }
 }
 @media screen and (max-width: 400px){
   .search-bar{
-    width: 80px;
+    width: 100px;
   }
 }
