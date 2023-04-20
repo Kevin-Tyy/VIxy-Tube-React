@@ -14,16 +14,16 @@ const SearchFeed = () => {
 		);
 	}, [searchTerm]);
 	return (
-		<Box p={2} sx={{ overflowY: "auto", height: "90vh", flex: 2 }}>
+		<Box p={2} sx={{ overflowY: "auto", height: "90vh", flex: 1  }}>
 			<Typography
 				variant="h6"
 				fontWeight="bold"
 				mb={2}
-				sx={{ color: "white" , ml: '100px', my: "30px"}}>
+				sx={{ color: "white" , my: "30px"  ,display : 'flex' , justifyContent : 'center'}}>
 				Search results for:  
 				<span style={{ color: "#1b37b4" }}> {searchTerm}</span>
 			</Typography>
-			<Box sx={{ml: { sm : '100px'}}} >
+			<Box sx={{ml: { sm : '10px' }}} >
 				<Videos videos={videos} />
 
 			</Box>
