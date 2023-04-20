@@ -2,7 +2,6 @@ import React from "react";
 import { Stack, Box, IconButton, Avatar, Tooltip , Typography} from "@mui/material";
 import { Link } from "react-router-dom";
 
-import { logo } from "../utils/constants";
 import SearchBar from "./SearchBar";
 import { NotificationsNoneOutlined, VideoCallOutlined, YouTube	 } from "@mui/icons-material";
 const Navbar = () => (
@@ -18,7 +17,6 @@ const Navbar = () => (
 			zIndex: 99999999
 		}}>
       <Link to="/" style={{display: "flex", alignItems : "center"}}>
-        {/* <img src={logo} alt="logo" height={40}/> */}
 		<YouTube fontSize="large" sx={{ color : '#1b37b4' , mr: '10px '}}/>
 		<Typography variant="h6" sx={{color : '#fff' , display : { xs : 'none' , md : 'inline-flex'}}} className="logo">
 			Vixy<span style={{color : '#1b37b4'}}>Tube</span>

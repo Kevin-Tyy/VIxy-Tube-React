@@ -30,7 +30,7 @@ const Feed = () => {
               &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;All rights reserved
           </Typography>
         </Box>
-        <Box p={2} sx={{overflowY : 'auto', height: '93vh', flex: 2}}>
+        <Box p={2} sx={{overflowY : 'auto', height: '94vh', flex: 2}}>
           <Typography variant='h6' fontWeight="bold" mb={2} sx={{color : "white"}}>
 
             {selectedCategory}

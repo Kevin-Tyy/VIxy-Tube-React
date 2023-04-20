@@ -14,8 +14,7 @@ import DeveloperModeIcon from '@mui/icons-material/DeveloperMode';
 import BusinessCenter  from '@mui/icons-material/BusinessCenter';
 import Engineering  from '@mui/icons-material/Engineering';
 import QuestionMark  from '@mui/icons-material/QuestionMark';
-import { SportsBasketballSharp, SportsSoccerSharp, SurfingRounded } from '@mui/icons-material';
-export const logo = 'https://i.ibb.co/s9Qys2j/logo.png';
+import { Adb, SportsBasketballSharp, SportsSoccerSharp, SurfingRounded } from '@mui/icons-material';
 
 export const categories = [
   { name: 'New', icon: <HomeIcon />, },
@@ -28,6 +27,7 @@ export const categories = [
   { name: 'Podcast', icon: <GraphicEqIcon />, },
   { name: 'Movie', icon: <OndemandVideoIcon />, },
   { name: 'Gaming', icon: <SportsEsportsIcon />, },
+  { name: 'Artificial Intelligence', icon: <Adb/>},
   { name: 'Live', icon: <LiveTvIcon />, },
   { name: 'NBA', icon: <SportsBasketballSharp/> , }, 
   { name: 'Sport', icon: <FitnessCenterIcon />, },
@@ -42,9 +42,3 @@ export const categories = [
   { name: 'Leisure' , icon : <SurfingRounded/>, },
 ];
 
-export const demoThumbnailUrl = 'https://i.ibb.co/G2L2Gwp/API-Course.png';
-export const demoChannelUrl = '/channel/UCmXmlB4-HJytD7wek0Uo97A';
-export const demoVideoUrl = '/video/GDa8kZLNhJ4';
-export const demoChannelTitle = 'JavaScript Mastery';
-export const demoVideoTitle = 'Build and Deploy 5 JavaScript & React API Projects in 10 Hours - Full Course | RapidAPI';
-export const demoProfilePicture = 'http://dergipark.org.tr/assets/app/images/buddy_sample.png'  
