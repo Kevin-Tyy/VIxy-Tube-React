@@ -61,7 +61,7 @@ const VideoDetails = () => {
                   </Typography>
 
                 </Link>
-                <Button sx={{ p : '5px 15px'}} onClick={()=> { setSubscribe("Subscribed")}} className='video-detail-btns'>
+                <Button sx={{ p : '5px 15px', minWidth : '70px', ml: { sx : '10px', md : '0px' }}} onClick={()=> { setSubscribe("Subscribed")}} className='video-detail-btns'>
                   {Subscribe}
                 </Button> 
 
@@ -71,7 +71,7 @@ const VideoDetails = () => {
             
                 <Box sx={{ borderRadius : '50px' , display : 'flex', height : '35px' ,  justifyContent : 'center' , alignItems : 'center'}}>
                   <Tooltip title="I like this" arrow>
-                    <Button sx={{ borderRadius : '50px 0 0 50px !important',p : '10px'}} className='video-detail-btns'>
+                    <Button sx={{ borderRadius : '50px 0 0 50px !important',p : '10px', minWIdth : '60px'}} className='video-detail-btns'>
                       <ThumbUpAltOutlined fontSize='small'/> &nbsp;&nbsp;
                       <Typography variant='body2' sx={{opacity : 0.7}}>
                         {parseInt(likeCount).toLocaleString()}
@@ -162,10 +162,10 @@ const VideoDetails = () => {
 
               </Box>
               <Box sx={{ width : '300px'}}>
-                <Button sx={{ mr : '10px' , width : '45%', borderRadius : '10px !important'  }} className='video-detail-btns'>
+                <Button sx={{ mr : '10px' , width : '45%', borderRadius : '10px !important' , minWidth : '60px' }} className='video-detail-btns'>
                   Cancel
                 </Button>
-                <Button sx={{ width : '45%' , borderRadius : '10px !important' , whiteSpace : 'nowrap' }} className='video-detail-btns'>
+                <Button sx={{ width : '45%' , borderRadius : '10px !important' , whiteSpace : 'nowrap' , minWidth : '60px'}} className='video-detail-btns'>
                   Send Comment
                 </Button>
               </Box>
