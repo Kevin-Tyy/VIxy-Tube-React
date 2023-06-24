@@ -3,56 +3,51 @@ import { useNavigate } from "react-router-dom";
 import { Paper, Button, IconButton, Box, Tooltip } from "@mui/material";
 import { MicOutlined, Search } from "@mui/icons-material";
 const SearchBar = () => {
-
-	const [searchTerm , setSearchTerm] = useState('');
+	const [searchTerm, setSearchTerm] = useState("");
 	const navigate = useNavigate();
 
 	const handleSubmit = (e) => {
 		e.preventDefault();
-
-		if(searchTerm){
+		if (searchTerm) {
 			navigate(`/search/${searchTerm}`);
-
-			setSearchTerm('');
+			setSearchTerm("");
 		}
-	}
+	};
 	return (
-		<Box sx={{ display : 'flex' , alignItems : 'center' , justifyContent : 'center'}}>
-		<Paper
-			component="form"
-			onSubmit={handleSubmit}
-			sx={{
-				borderRadius: '50px',
-				border: "1px solid #ffffff3d",
-				pl: 2,
-				boxShadow: "none",
-				mr: { sm: 5 },
-				backgroundColor: 'transparent',
-				height: "40px",
-				width: {sm : '300px', md: '550px'}
-				
-			}}>
-			
-        <input
-          className="search-bar"
-          placeholder="search..."
-          value={searchTerm}
-          onChange={(e)=> setSearchTerm(e.target.value)}
-		  style={{fontSize : '12px', color: 'white' , width : { sx : '70%'}}}
-        />
+		<div className="flex gap-2 items-center">
+			<form
+				onSubmit={handleSubmit}
+				className="flex items-center gap-2 bg-primary-light rounded-md">
+				<Tooltip title="Search with Your Voice" arrow>
+					<IconButton
+						sx={{
+							color: "#fff",
+							display: { xs: "none", md: "inline-flex" },
+						}}
+						className="p-2">
+						<MicOutlined />
+					</IconButton>
+				</Tooltip>
+				<input
+					placeholder="search..."
+					value={searchTerm}
+					onChange={(e) => setSearchTerm(e.target.value)}
+					className="bg-transparent w-full outline-none text-white min-w-[400px]"
+				/>
 
-			<Button type="submit" sx={{p : '10px', borderRadius : '0 50px 50px 0' ,color : '#ffffff4d' ,height : '100%', backgroundColor : '#ffffff2d !important'}} >
-				<Search/>
-			</Button>
-		</Paper>
-		<Tooltip title="Search with Your Voice" arrow>
-
-			<IconButton sx={{color : '#fff' , backgroundColor : '#ffffff1d' ,ml: '-20px', display : { xs : 'none' , md : 'inline-flex'}}} className="icon-button">
-				<MicOutlined />
-
-			</IconButton>
-		</Tooltip>
-		</Box>
+				<Button
+					type="submit"
+					sx={{
+						p: "8px",
+						borderRadius: "0 7px 7px 0",
+						color: "#fff",
+						height: "100%",
+						backgroundColor: "#ffffff1d !important",
+					}}>
+					<Search />
+				</Button>
+			</form>
+		</div>
 	);
 };
 

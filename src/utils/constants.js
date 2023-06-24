@@ -14,20 +14,17 @@ import DeveloperModeIcon from '@mui/icons-material/DeveloperMode';
 import BusinessCenter  from '@mui/icons-material/BusinessCenter';
 import Engineering  from '@mui/icons-material/Engineering';
 import QuestionMark  from '@mui/icons-material/QuestionMark';
-import { Adb, SportsBasketballSharp, SportsSoccerSharp, SurfingRounded } from '@mui/icons-material';
+import { Adb, MusicNoteOutlined, SportsBasketballSharp, SportsSoccerSharp, SurfingRounded } from '@mui/icons-material';
 
 export const categories = [
-  { name: 'New', icon: <HomeIcon />, },
+  { name: 'Trending', icon: <HomeIcon />, },
   { name: 'Coding', icon: <CodeIcon />, },
-  { name: 'ReactJS', icon: <CodeIcon />, },
-  { name: 'NextJS', icon: <CodeIcon />, },
-  { name: 'Did you Know', icon: <QuestionMark />, },
-  { name: 'Music', icon: <MusicNoteIcon /> },
+  { name: 'Music', icon: <MusicNoteOutlined /> },
   { name: 'Education', icon: <SchoolIcon />, },
   { name: 'Podcast', icon: <GraphicEqIcon />, },
   { name: 'Movie', icon: <OndemandVideoIcon />, },
   { name: 'Gaming', icon: <SportsEsportsIcon />, },
-  { name: 'Artificial Intelligence', icon: <Adb/>},
+  { name: 'AI War', icon: <Adb/>},
   { name: 'Live', icon: <LiveTvIcon />, },
   { name: 'NBA', icon: <SportsBasketballSharp/> , }, 
   { name: 'Sport', icon: <FitnessCenterIcon />, },

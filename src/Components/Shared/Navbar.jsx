@@ -1,61 +1,40 @@
 import React from "react";
-import {
-	Stack,
-	Box,
-	IconButton,
-	Avatar,
-	Tooltip,
-	Typography,
-} from "@mui/material";
+import { Box, IconButton, Avatar, Tooltip, Typography } from "@mui/material";
 import { Link } from "react-router-dom";
 
 import SearchBar from "./SearchBar";
 import {
 	NotificationsNoneOutlined,
-	VideoCallOutlined,
+	Add,
 	YouTube,
 } from "@mui/icons-material";
 const Navbar = () => (
-	<Stack
-		direction="row"
-		alignItems="center"
-		p={0.7}
-		sx={{
-			position: { sx: "relative", md: "sticky" },
-			backgroundColor: "#000",
-			top: 0,
-			justifyContent: "space-between",
-			zIndex: 99999999,
-		}}>
-		<Link to="/" style={{ display: "flex", alignItems: "center" }}>
-			<YouTube fontSize="large" sx={{ color: "#1b37b4", mr: "10px " }} />
-			<Typography
-				variant="h6"
-				sx={{ color: "#fff", display: { xs: "none", md: "inline-flex" } }}
-				className="logo">
-				Vixy<span style={{ color: "#1b37b4" }}>Tube</span>
+	<div className="flex items-center justify-between w-full p-4">
+		<Link to="/" className="flex gap-2">
+			<YouTube fontSize="large" className="text-primary-red" />
+			<Typography variant="h6" sx={{color : 'white'}}>
+				You<span className="text-primary-red">Tube</span>
 			</Typography>
 		</Link>
 
 		<SearchBar />
-		<Box
-			sx={{ display: "flex", alignItems: "center", justifyContent: "center" }}>
+		<div
+		className="flex items-center gap-4"
+			>
 			<Tooltip title="Create" arrow>
 				<IconButton
 					sx={{
 						color: "#fff",
-						mr: "15px",
 						display: { xs: "none", md: "inline-flex" },
 					}}
 					className="icon-button">
-					<VideoCallOutlined />
+					<Add />
 				</IconButton>
 			</Tooltip>
 			<Tooltip title="Notifications" arrow>
 				<IconButton
 					sx={{
 						color: "#fff",
-						mr: "15px",
 						display: { xs: "none", md: "inline-flex" },
 					}}
 					className="icon-button">
@@ -67,8 +46,8 @@ const Navbar = () => (
 					<Avatar sx={{ width: 35, height: 35 }}> J </Avatar>
 				</IconButton>
 			</Tooltip>
-		</Box>
-	</Stack>
+		</div>
+	</div>
 );
 
 export default Navbar;

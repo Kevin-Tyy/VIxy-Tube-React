@@ -1,3 +1,6 @@
+@import "tailwindcss/utilities";
+@import "tailwindcss/base";
+@import "tailwindcss/components";
 
 html,
 body {
@@ -5,6 +8,7 @@ body {
   padding: 0;
   box-sizing: border-box;
 }
+
 a {
   text-decoration: none;
   color: black;
@@ -25,12 +29,7 @@ a {
   background-color: transparent;
 }
 
-.logo{
-  font-weight: 500;
-  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif !important; 
 
-  
-}
 .category-btn:hover {
   background-color: #1b37b4 !important;
   color: white !important;
@@ -49,12 +48,7 @@ a {
 }   
 
 
-.search-bar{
-  border:none;
-  outline:none;
-  width:482px;
-  background-color: #000;
-}
+
 .video-detail-btns{
   color: white !important;
   display: flex;
@@ -69,11 +63,6 @@ a {
   background-color: #ffffff3d !important;
 }
 
-
-.icon-button:hover{
-  transition: 0.5s;
-  background-color: #ffffff2d !important;
-}
 .category-btn{
   font-size: 12px;
   text-transform: capitalize;
