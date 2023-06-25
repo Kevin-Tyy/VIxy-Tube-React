@@ -20,10 +20,9 @@ const VideoCard = ({
 					/>
 				</Link>
 			</div>
-			<div className="">
+			<div>
 				<div className="flex ">
-					<div
-					>
+					<div>
 						<Link to={`/channel/${snippet?.channelId}`}>
 							<img
 								src={snippet?.thumbnails?.high?.url}
