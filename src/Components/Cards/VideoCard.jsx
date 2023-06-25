@@ -26,8 +26,7 @@ const VideoCard = ({
 						<Link to={`/channel/${snippet?.channelId}`}>
 							<img
 								src={snippet?.thumbnails?.high?.url}
-								width={"40px"}
-								height={"40px"}
+								className="w-10 h-10"
 								style={{ objectFit: "cover", transform: "scale(1.3)" }}
 							/>
 						</Link>
