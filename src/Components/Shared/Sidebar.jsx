@@ -12,9 +12,8 @@ const Sidebar = ({ selectedCategory, setSelectedCategory }) => {
 					}`}
 					key={category.name}>
 					<span
-						className={`flex whitespace-nowrap ${
-							category.name == selectedCategory ? "text-white" : "text-primary-red"
-						}`}>
+						className={`flex whitespace-nowrap text-white
+						`}>
 						{category.icon}
 					</span>
 					<span

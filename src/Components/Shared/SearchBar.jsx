@@ -17,7 +17,7 @@ const SearchBar = () => {
 		<div className="flex gap-2 items-center">
 			<form
 				onSubmit={handleSubmit}
-				className="flex items-center gap-2 bg-primary-light rounded-md">
+				className="flex items-center gap-2 bg-primary-light rounded-md pl-2">
 				<Tooltip title="Search with Your Voice" arrow>
 					<IconButton
 						sx={{
@@ -32,7 +32,7 @@ const SearchBar = () => {
 					placeholder="search..."
 					value={searchTerm}
 					onChange={(e) => setSearchTerm(e.target.value)}
-					className="bg-transparent w-full outline-none text-white min-w-[400px]"
+					className="bg-transparent w-full outline-none text-white md:first-letter md:min-w-[400px]"
 				/>
 
 				<Button

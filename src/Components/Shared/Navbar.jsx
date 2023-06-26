@@ -10,7 +10,7 @@ import {
 } from "@mui/icons-material";
 const Navbar = () => (
 	<div className="flex items-center justify-between w-full p-4">
-		<Link to="/" className="flex gap-2">
+		<Link to="/" className="gap-2 hidden md:flex">
 			<YouTube fontSize="large" className="text-primary-red" />
 			<Typography variant="h6" sx={{color : 'white'}}>
 				You<span className="text-primary-red">Tube</span>
