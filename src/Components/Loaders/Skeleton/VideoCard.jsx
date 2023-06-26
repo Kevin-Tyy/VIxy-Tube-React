@@ -1,5 +1,5 @@
 import React from "react";
-import Skeleton from "react-loading-skeleton";
+import Skeleton from '@mui/material'
 
 const VideoCard = () => {
 	const numberOfLoaders = 40;
