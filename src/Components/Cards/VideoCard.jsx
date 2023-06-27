@@ -1,7 +1,8 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { Typography, Card, CardContent, CardMedia, Stack } from "@mui/material";
 import { CheckCircle } from "@mui/icons-material";
+import { fetchFromAPI } from "../../utils/FetchFromApi";
 
 const VideoCard = ({
 	video: {
@@ -9,14 +10,23 @@ const VideoCard = ({
 		snippet,
 	},
 }) => {
+	const [channel, setChannel] = useState(null);
+	useEffect(() => {
+		fetchFromAPI(`channels?part=snippet&id=${snippet?.channelId}`).then(
+			(data) => {
+				setChannel(data);
+			}
+		);
+	}, []);
+	console.log(channel);
 	return (
 		<div className="bg-transparent overflow-hidden w-full">
-			<div className="rounded-xl w-full h-[150px]">
+			<div className="w-full rounded-xl h-[180px] overflow-hidden">
 				<Link to={`/video/${videoId}`}>
 					<img
 						src={snippet?.thumbnails?.high?.url}
 						alt={snippet?.title}
-						className=" h-full w-full object-cover"
+						className=" h-full w-full object-cover transition duration-300 scale-125 hover:scale-150"
 					/>
 				</Link>
 			</div>
@@ -25,9 +35,8 @@ const VideoCard = ({
 					<div>
 						<Link to={`/channel/${snippet?.channelId}`}>
 							<img
-								src={snippet?.thumbnails?.high?.url}
-								className="w-10 h-10"
-								style={{ objectFit: "cover", transform: "scale(1.3)" }}
+								src={channel?.items[0]?.snippet?.thumbnails?.high?.url}
+								className="h-10 w-10"
 							/>
 						</Link>
 					</div>

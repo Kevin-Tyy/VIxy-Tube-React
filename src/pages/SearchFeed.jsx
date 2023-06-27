@@ -24,7 +24,10 @@ const SearchFeed = () => {
 					display: "flex",
 					justifyContent: "center",
 				}}>
-				Videos for:<span className="text-primary-red first-letter:capitalize">{searchTerm}</span>
+				Videos for:
+				<span className="text-primary-red first-letter:capitalize">
+					{searchTerm}
+				</span>
 			</Typography>
 			<div sx={{ ml: { sm: "10px" } }}>
 				<Videos videos={videos} />
