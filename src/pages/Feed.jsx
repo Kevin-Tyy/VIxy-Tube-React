@@ -13,13 +13,13 @@ const Feed = () => {
 		).then((data) => setVideos(data.items));
 	}, [selectedCategory]);
 	return (
-		<div>
+		<div className="flex flex-col gap-2">
 			<div>
 				<Sidebar
 					selectedCategory={selectedCategory}
 					setSelectedCategory={setSelectdeCategory}></Sidebar>
 			</div>
-			<div className="w-full">
+			<div className="w-full flex flex-col py-3 gap-4">
 				<div className="flex w-full justify-center items-center">
 					<Typography
 						variant="h6"
@@ -28,7 +28,7 @@ const Feed = () => {
 						sx={{ color: "white" , textAlign : 'center'}}>
 						{selectedCategory}
 
-						<span style={{ color: "#1b37b4" }}> Videos</span>
+						<span className="text-primary-red"> Videos</span>
 					</Typography>
 				</div>
 				<Videos videos={videos} />

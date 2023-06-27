@@ -7,7 +7,7 @@ const Sidebar = ({ selectedCategory, setSelectedCategory }) => {
 			{categories.map((category) => (
 				<button
 					onClick={() => setSelectedCategory(category.name)}
-					className={`flex flex-col px-10 py-4 items-center justify-center whitespace-nowrap text-white rounded-md transition duration-75 ${
+					className={`flex flex-col gap-3 px-10 py-4 items-center justify-center whitespace-nowrap text-white rounded-md transition duration-75  ${
 						category.name == selectedCategory ? "bg-primary-red" : "bg-primary-dark "
 					}`}
 					key={category.name}>
@@ -17,8 +17,8 @@ const Sidebar = ({ selectedCategory, setSelectedCategory }) => {
 						{category.icon}
 					</span>
 					<span
-						className={`opacity-${
-							category.name == selectedCategory ? "100" : "80"
+						className={`text-sm text-${
+							category.name == selectedCategory ? "white" : "gray-200"
 						}`}>
 						{category.name}
 					</span>

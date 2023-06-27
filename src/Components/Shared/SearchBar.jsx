@@ -34,18 +34,9 @@ const SearchBar = () => {
 					onChange={(e) => setSearchTerm(e.target.value)}
 					className="bg-transparent w-full outline-none text-white md:first-letter md:min-w-[400px]"
 				/>
-
-				<Button
-					type="submit"
-					sx={{
-						p: "8px",
-						borderRadius: "0 7px 7px 0",
-						color: "#fff",
-						height: "100%",
-						backgroundColor: "#ffffff1d !important",
-					}}>
+				<button className="py-1 px-4 text-white">
 					<Search />
-				</Button>
+				</button>
 			</form>
 		</div>
 	);
