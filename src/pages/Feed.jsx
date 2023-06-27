@@ -19,17 +19,18 @@ const Feed = () => {
 					selectedCategory={selectedCategory}
 					setSelectedCategory={setSelectdeCategory}></Sidebar>
 			</div>
-			<div>
-				<Typography
-					variant="h6"
-					fontWeight="bold"
-					mb={2}
-					sx={{ color: "white" }}>
-					{selectedCategory}
+			<div className="w-full">
+				<div className="flex w-full justify-center items-center">
+					<Typography
+						variant="h6"
+						fontWeight="bold"
+						mb={2}
+						sx={{ color: "white" , textAlign : 'center'}}>
+						{selectedCategory}
 
-					<span style={{ color: "#1b37b4" }}> Videos</span>
-				</Typography>
-
+						<span style={{ color: "#1b37b4" }}> Videos</span>
+					</Typography>
+				</div>
 				<Videos videos={videos} />
 			</div>
 		</div>

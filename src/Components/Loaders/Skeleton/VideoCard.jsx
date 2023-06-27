@@ -5,7 +5,7 @@ const VideoCard = () => {
 	const numberOfLoaders = 40;
 	const loaderArray = Array(numberOfLoaders).fill(null);
 	return (
-		<div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 3xl:grid-cols-6 p-4 md:p-12 gap-6">
+		<div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 3xl:grid-cols-6 px-4 md:px-12 gap-6">
 			{loaderArray.map((_, index) => (
 				<div
 					className="bg-[#1a1b2b5d] p-4 flex flex-col gap-4 rounded-lg"
