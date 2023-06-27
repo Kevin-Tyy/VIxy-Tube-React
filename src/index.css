@@ -9,11 +9,6 @@ body {
   box-sizing: border-box;
 }
 
-a {
-  text-decoration: none;
-  color: black;
-}
-
 ::-webkit-scrollbar {
   width: 0px;
   height: 5px;
@@ -29,17 +24,6 @@ a {
   background-color: transparent;
 }
 
-
-.category-btn:hover {
-  background-color: #1b37b4 !important;
-  color: white !important;
-}
-
-.category-btn:hover span{
-  opacity: 1 !important;
-  color: white !important;
-  
-}
 
 .react-player {
   height: 63vh !important;
@@ -63,22 +47,6 @@ a {
   background-color: #ffffff3d !important;
 }
 
-.category-btn{
-  font-size: 12px;
-  text-transform: capitalize;
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;
-  cursor:pointer;
-  background: transparent;
-  outline: none;
-  border: none;
-  white-space: nowrap;
-  padding: 6px 15px;
-  margin: 5px 0px;
-  border-radius: 5px;
-  transition: 0.2s;
-}
 
 @media screen and (max-width : 1300px ){
   .react-player{
