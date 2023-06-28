@@ -30,7 +30,7 @@ const SearchFeed = () => {
 				</span>
 			</Typography>
 			<div sx={{ ml: { sm: "10px" } }}>
-				<Videos videos={videos} />
+				<Videos isGrid={true} videos={videos} />
 			</div>
 		</div>
 	);

@@ -32,11 +32,11 @@ const SearchBar = () => {
 					onChange={(e) => setSearchTerm(e.target.value)}
 					className="bg-transparent w-full outline-none text-white md:first-letter md:min-w-[400px]"
 				/>
-				<button className="text-white">
+				<div className="text-white">
 					<IconButton sx={{ color: "white" }} className="p-1">
 						<Search />
 					</IconButton>
-				</button>
+				</div>
 			</form>
 		</div>
 	);

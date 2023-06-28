@@ -5,16 +5,7 @@ import { Link } from "react-router-dom";
 
 const ChannelCard = ({ channelDetail }) => {
 	return (
-		<Box
-			sx={{
-				boxShadow: "none",
-				borderRadius: "20px",
-				display: "flex",
-				justifyContent: "center",
-				alignContent: "center",
-				width: { xs: "356px", md: "315px" },
-				margin: "auto",
-			}}>
+		<div className="flex justify-center items-center">
 			<Link to={`/channel/${channelDetail?.id?.channelId}`}>
 				<div className="flex flex-col justify-center items-center text-center text-white">
 					<img
@@ -36,7 +27,7 @@ const ChannelCard = ({ channelDetail }) => {
 					)}
 				</div>
 			</Link>
-		</Box>
+		</div>
 	);
 };
 

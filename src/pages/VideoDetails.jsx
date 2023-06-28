@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Link, useParams } from "react-router-dom";
 import ReactPlayer from "react-player";
-import { Avatar, Box, Button, Stack, Typography } from "@mui/material";
+import { Avatar, Button, Typography } from "@mui/material";
 import {
 	CheckCircle,
 	DownloadOutlined,
@@ -24,6 +24,7 @@ import { fetchFromAPI } from "../utils/FetchFromApi";
 const VideoDetails = () => {
 	const [videoDetail, setVideoDetail] = useState(null);
 	const [videos, setVideos] = useState(null);
+	const [comments, setComments] = useState([])
 	const [Subscribe, setSubscribe] = useState("Subscribe");
 	const { id } = useParams();
 	const WATCH_URL = "https://youtube.com/watch";
@@ -36,31 +37,25 @@ const VideoDetails = () => {
 		fetchFromAPI(`search?part=snippet&relatedToVideoId=${id}&type=video`).then(
 			(data) => setVideos(data.items)
 		);
+		fetchFromAPI(
+			`commentThreads?part=snippet&videoId=${id}&maxResults=100`
+		).then((data) => setComments(data.items));
 	}, []);
 
 	if (!videoDetail?.snippet) {
 		return <Loader />;
 	}
-
+	console.log(comments)
 	const {
 		snippet: { title, channelId, channelTitle },
 		statistics: { viewCount, likeCount, commentCount },
 	} = videoDetail;
 
 	return (
-		<Box
-			minHeight={"95vh"}
-			width={{ sx: 0, lg: "90%" }}
-			ml={{ sx: 0, lg: "150px" }}>
-			<Stack direction={{ xs: "column", md: "row" }}>
-				<Box
-					flex={1}
-					sx={{
-						position: { sx: "relative", md: "sticky" },
-						top: "86px",
-						zIndex: "999",
-					}}>
-					<Box sx={{ width: "98%", overflow: "scroll", p: "3px" }}>
+		<div className="w-full">
+			<div className="w-full max-w-[1400px] mx-auto flex gap-6">
+				<div className="" >
+					<div>
 						<ReactPlayer
 							url={`${WATCH_URL}?v=${id}`}
 							className="react-player"
@@ -71,11 +66,8 @@ const VideoDetails = () => {
 						<Typography color={"#fff"} variant="h6" fontWeight="bold" p={2}>
 							{title}
 						</Typography>
-						<Stack
-							justifyContent="space-between"
-							sx={{ color: "#fff", flexDirection: { sx: "column", md: "row" } }}
-							px={2}>
-							<Box>
+						<div>
+							<div>
 								<Link to={`/channel/${channelId}`}>
 									<Typography variant={{ sm: "body2", md: "h6" }} color="#fff">
 										{channelTitle}
@@ -90,37 +82,21 @@ const VideoDetails = () => {
 									</Typography>
 								</Link>
 								<Button
-									sx={{
-										p: "5px 15px",
-										minWidth: "70px",
-										ml: { sx: "10px", md: "0px" },
-									}}
 									onClick={() => {
 										setSubscribe("Subscribed");
 									}}
 									className="video-detail-btns">
 									{Subscribe}
 								</Button>
-							</Box>
+							</div>
 
-							<Stack direction={"row"} gap="10px" alignItems="center">
-								<Box
-									sx={{
-										borderRadius: "50px",
-										display: "flex",
-										height: "35px",
-										justifyContent: "center",
-										alignItems: "center",
-									}}>
+							<div direction={"row"} gap="10px" alignItems="center">
+								<div>
 									<Tooltip title="I like this" arrow>
 										<Button
-											sx={{
-												borderRadius: "50px 0 0 50px !important",
-												p: "10px",
-												minWIdth: "60px",
-											}}
+										
 											className="video-detail-btns">
-											<ThumbUpAltOutlined fontSize="small" /> &nbsp;&nbsp;
+											<ThumbUpAltOutlined fontSize="small" />
 											<Typography variant="body2" sx={{ opacity: 0.7 }}>
 												{parseInt(likeCount).toLocaleString()}
 											</Typography>
@@ -128,20 +104,15 @@ const VideoDetails = () => {
 									</Tooltip>
 									<Tooltip title="I dislike this" arrow>
 										<Button
-											sx={{
-												borderLeft: "1px solid #ffffff1d",
-												height: "35px",
-												borderRadius: "0 50px 50px 0 !important",
-											}}
+										
 											className="video-detail-btns">
 											<ThumbDownAltOutlined fontSize="small" />
 										</Button>
 									</Tooltip>
-								</Box>
+								</div>
 								<Tooltip title="Share" arrow>
 									<Button className="video-detail-btns">
 										<ShareOutlined fontSize="small" />
-										&nbsp;&nbsp;
 										<Typography
 											variant="body2"
 											sx={{
@@ -155,7 +126,7 @@ const VideoDetails = () => {
 								<Tooltip title="Download" arrow>
 									<Button className="video-detail-btns">
 										<DownloadOutlined fontSize="small" />
-										&nbsp;&nbsp;
+										
 										<Typography
 											variant="body2"
 											sx={{
@@ -172,10 +143,7 @@ const VideoDetails = () => {
 										&nbsp;&nbsp;
 										<Typography
 											variant="body2"
-											sx={{
-												opacity: 0.7,
-												display: { xs: "none", md: "block" },
-											}}>
+										>
 											Save
 										</Typography>
 									</Button>
@@ -185,8 +153,8 @@ const VideoDetails = () => {
 										<MoreHorizIcon />
 									</Button>
 								</Tooltip>
-							</Stack>
-						</Stack>
+							</div>
+						</div>
 
 						<Accordion
 							sx={{
@@ -224,14 +192,9 @@ const VideoDetails = () => {
 							{commentCount} Comments
 						</Typography>
 
-						<Stack
-							sx={{
-								display: "flex",
-								alignItems: "center",
-								justifyContent: "space-between",
-								flexDirection: { sx: "column", md: "row" },
-							}}>
-							<Box sx={{ display: "flex", alignItems: "center", width: "85%" }}>
+						<div
+						>
+							<div sx={{ display: "flex", alignItems: "center", width: "85%" }}>
 								<Avatar sx={{ mr: "10px" }}>J</Avatar>
 								<TextField
 									id="input-with-sx"
@@ -253,8 +216,8 @@ const VideoDetails = () => {
 										},
 									}}
 								/>
-							</Box>
-							<Box sx={{ width: "300px" }}>
+							</div>
+							<div sx={{ width: "300px" }}>
 								<Button
 									sx={{
 										mr: "10px",
@@ -275,22 +238,18 @@ const VideoDetails = () => {
 									className="video-detail-btns">
 									Send Comment
 								</Button>
-							</Box>
-						</Stack>
-					</Box>
-				</Box>
-				<Box
-					px={2}
-					py={{ md: 1, xs: 5 }}
-					justifyContent="center"
-					alignItems="center">
+							</div>
+						</div>
+					</div>
+				</div>
+				<div className="min-w-[300px]">
 					<Typography variant="h6" sx={{ color: "#f9f9f9", mb: "10px" }}>
 						Related Videos
 					</Typography>
-					<Videos videos={videos} direction="column" marginRight={"100px"} />
-				</Box>
-			</Stack>
-		</Box>
+					<Videos isGrid={false} videos={videos} direction="column" marginRight={"100px"} />
+				</div>
+			</div>
+		</div>
 	);
 };
 

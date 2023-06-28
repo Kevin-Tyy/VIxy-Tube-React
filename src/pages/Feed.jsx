@@ -31,7 +31,7 @@ const Feed = () => {
 						<span className="text-primary-red"> Videos</span>
 					</Typography>
 				</div>
-				<Videos videos={videos} />
+				<Videos isGrid={true} videos={videos} />
 			</div>
 		</div>
 	);
