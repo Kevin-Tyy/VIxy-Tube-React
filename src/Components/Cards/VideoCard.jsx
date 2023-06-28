@@ -22,7 +22,7 @@ const VideoCard = ({
 			} gap-3`}>
 			<div
 				className={`w-full rounded-xl ${
-					isGrid ? "h-[180px]" : "h-[120px] min-w-[200px] max-w-[200px]"
+					isGrid ? "h-[160px]" : "h-[110px] min-w-[200px] max-w-[200px]"
 				} overflow-hidden`}>
 				<Link to={`/video/${videoId}`}>
 					<img
@@ -45,7 +45,7 @@ const VideoCard = ({
 						</div>
 					)}
 
-					<div className="w-full flex flex-col gap-2">
+					<div className={`w-full flex flex-col ${isGrid ? 'gap-2': 'gap-1'}`}>
 						<Link to={`/video/${videoId}`}>
 							<p className="text-white text-sm">
 								{snippet?.title.slice(0, 100)}
