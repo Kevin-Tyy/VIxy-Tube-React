@@ -9,14 +9,21 @@ const VideoCard = ({
 		id: { videoId },
 		snippet,
 	},
+	isGrid,
 }) => {
 	const formattedDate = useDateFormatter(snippet?.publishedAt);
 	useEffect(() => {
-		fetchFromAPI(``)
+		fetchFromAPI(``);
 	}, []);
 	return (
-		<div className="bg-transparent overflow-hidden w-full flex flex-col gap-3">
-			<div className="w-full rounded-xl h-[180px] overflow-hidden">
+		<div
+			className={`bg-transparent overflow-hidden w-full flex ${
+				isGrid ? "flex-col" : "flex-row"
+			} gap-3`}>
+			<div
+				className={`w-full rounded-xl ${
+					isGrid ? "h-[180px]" : "h-[120px] min-w-[200px] max-w-[200px]"
+				} overflow-hidden`}>
 				<Link to={`/video/${videoId}`}>
 					<img
 						src={snippet?.thumbnails?.high?.url}
@@ -27,14 +34,16 @@ const VideoCard = ({
 			</div>
 			<div>
 				<div className="flex gap-4">
-					<div className="h-9 w-9 rounded-full overflow-hidden">
-						<Link to={`/channel/${snippet?.channelId}`}>
-							<img
-								src={snippet?.thumbnails?.high?.url}
-								className="h-full w-full object-cover scale-150"
-							/>
-						</Link>
-					</div>
+					{isGrid && (
+						<div className="h-9 w-9 rounded-full overflow-hidden">
+							<Link to={`/channel/${snippet?.channelId}`}>
+								<img
+									src={snippet?.thumbnails?.high?.url}
+									className="h-full w-full object-cover scale-150"
+								/>
+							</Link>
+						</div>
+					)}
 
 					<div className="w-full flex flex-col gap-2">
 						<Link to={`/video/${videoId}`}>

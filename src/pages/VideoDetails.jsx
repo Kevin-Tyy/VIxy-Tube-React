@@ -53,7 +53,7 @@ const VideoDetails = () => {
 
 	return (
 		<div className="w-full">
-			<div className="w-full max-w-[1400px] mx-auto flex gap-6">
+			<div className="w-full max-w-[1500px] mx-auto flex gap-6">
 				<div className="" >
 					<div>
 						<ReactPlayer
@@ -242,7 +242,7 @@ const VideoDetails = () => {
 						</div>
 					</div>
 				</div>
-				<div className="min-w-[300px]">
+				<div className="min-w-[380px]">
 					<Typography variant="h6" sx={{ color: "#f9f9f9", mb: "10px" }}>
 						Related Videos
 					</Typography>
