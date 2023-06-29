@@ -35,21 +35,6 @@ body {
 
 
 
-.video-detail-btns{
-  color: white !important;
-  display: flex;
-  align-items: center;
-  justify-content: space-around;
-  text-transform: lowercase !important;
-  background-color: #ffffff1d !important;
-  border-radius: 50px !important;
-  height: 35px !important;
-}
-.video-detail-btns:hover{
-  background-color: #ffffff3d !important;
-}
-
-
 @media screen and (max-width : 1300px ){
   .react-player{
     height: 60vh !important;

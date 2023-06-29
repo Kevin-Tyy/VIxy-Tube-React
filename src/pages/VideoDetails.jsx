@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Link, useParams } from "react-router-dom";
 import ReactPlayer from "react-player";
-import { Avatar, Button, Typography } from "@mui/material";
+import { Avatar, button, Typography } from "@mui/material";
 import {
 	CheckCircle,
 	DownloadOutlined,
@@ -24,7 +24,7 @@ import { fetchFromAPI } from "../utils/FetchFromApi";
 const VideoDetails = () => {
 	const [videoDetail, setVideoDetail] = useState(null);
 	const [videos, setVideos] = useState(null);
-	const [comments, setComments] = useState([])
+	const [comments, setComments] = useState([]);
 	const [Subscribe, setSubscribe] = useState("Subscribe");
 	const { id } = useParams();
 	const WATCH_URL = "https://youtube.com/watch";
@@ -45,7 +45,7 @@ const VideoDetails = () => {
 	if (!videoDetail?.snippet) {
 		return <Loader />;
 	}
-	console.log(comments)
+	console.log(comments);
 	const {
 		snippet: { title, channelId, channelTitle },
 		statistics: { viewCount, likeCount, commentCount },
@@ -54,8 +54,8 @@ const VideoDetails = () => {
 	return (
 		<div className="w-full">
 			<div className="w-full max-w-[1500px] mx-auto flex gap-6">
-				<div className="" >
-					<div>
+				<div className="">
+					<div className="w-full">
 						<ReactPlayer
 							url={`${WATCH_URL}?v=${id}`}
 							className="react-player"
@@ -63,9 +63,7 @@ const VideoDetails = () => {
 							playing={true}
 							muted={false}
 						/>
-						<Typography color={"#fff"} variant="h6" fontWeight="bold" p={2}>
-							{title}
-						</Typography>
+						<p className="text-lg text-white my-2 font-bold">{title}</p>
 						<div>
 							<div>
 								<Link to={`/channel/${channelId}`}>
@@ -81,37 +79,33 @@ const VideoDetails = () => {
 										/>
 									</Typography>
 								</Link>
-								<Button
+								<button
 									onClick={() => {
 										setSubscribe("Subscribed");
 									}}
 									className="video-detail-btns">
 									{Subscribe}
-								</Button>
+								</button>
 							</div>
 
 							<div direction={"row"} gap="10px" alignItems="center">
 								<div>
 									<Tooltip title="I like this" arrow>
-										<Button
-										
-											className="video-detail-btns">
+										<button>
 											<ThumbUpAltOutlined fontSize="small" />
 											<Typography variant="body2" sx={{ opacity: 0.7 }}>
 												{parseInt(likeCount).toLocaleString()}
 											</Typography>
-										</Button>
+										</button>
 									</Tooltip>
 									<Tooltip title="I dislike this" arrow>
-										<Button
-										
-											className="video-detail-btns">
+										<button>
 											<ThumbDownAltOutlined fontSize="small" />
-										</Button>
+										</button>
 									</Tooltip>
 								</div>
 								<Tooltip title="Share" arrow>
-									<Button className="video-detail-btns">
+									<button>
 										<ShareOutlined fontSize="small" />
 										<Typography
 											variant="body2"
@@ -121,12 +115,12 @@ const VideoDetails = () => {
 											}}>
 											Share
 										</Typography>
-									</Button>
+									</button>
 								</Tooltip>
 								<Tooltip title="Download" arrow>
-									<Button className="video-detail-btns">
+									<button>
 										<DownloadOutlined fontSize="small" />
-										
+
 										<Typography
 											variant="body2"
 											sx={{
@@ -135,23 +129,19 @@ const VideoDetails = () => {
 											}}>
 											Download
 										</Typography>
-									</Button>
+									</button>
 								</Tooltip>
 								<Tooltip title="Save" arrow>
-									<Button className="video-detail-btns">
+									<button>
 										<SaveAlt fontSize="small" />
 										&nbsp;&nbsp;
-										<Typography
-											variant="body2"
-										>
-											Save
-										</Typography>
-									</Button>
+										<Typography variant="body2">Save</Typography>
+									</button>
 								</Tooltip>
 								<Tooltip title="more" arrow>
-									<Button className="video-detail-btns">
+									<button>
 										<MoreHorizIcon />
-									</Button>
+									</button>
 								</Tooltip>
 							</div>
 						</div>
@@ -192,8 +182,7 @@ const VideoDetails = () => {
 							{commentCount} Comments
 						</Typography>
 
-						<div
-						>
+						<div>
 							<div sx={{ display: "flex", alignItems: "center", width: "85%" }}>
 								<Avatar sx={{ mr: "10px" }}>J</Avatar>
 								<TextField
@@ -218,7 +207,7 @@ const VideoDetails = () => {
 								/>
 							</div>
 							<div sx={{ width: "300px" }}>
-								<Button
+								<button
 									sx={{
 										mr: "10px",
 										width: "45%",
@@ -227,8 +216,8 @@ const VideoDetails = () => {
 									}}
 									className="video-detail-btns">
 									Cancel
-								</Button>
-								<Button
+								</button>
+								<button
 									sx={{
 										width: "45%",
 										borderRadius: "10px !important",
@@ -237,7 +226,7 @@ const VideoDetails = () => {
 									}}
 									className="video-detail-btns">
 									Send Comment
-								</Button>
+								</button>
 							</div>
 						</div>
 					</div>
@@ -246,7 +235,12 @@ const VideoDetails = () => {
 					<Typography variant="h6" sx={{ color: "#f9f9f9", mb: "10px" }}>
 						Related Videos
 					</Typography>
-					<Videos isGrid={false} videos={videos} direction="column" marginRight={"100px"} />
+					<Videos
+						isGrid={false}
+						videos={videos}
+						direction="column"
+						marginRight={"100px"}
+					/>
 				</div>
 			</div>
 		</div>
