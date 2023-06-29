@@ -24,6 +24,7 @@ import { fetchFromAPI } from "../utils/FetchFromApi";
 const VideoDetails = () => {
 	const [videoDetail, setVideoDetail] = useState(null);
 	const [videos, setVideos] = useState(null);
+	const [channelDetails, setChannelDetails] = useState([]);
 	const [comments, setComments] = useState([]);
 	const [Subscribe, setSubscribe] = useState("Subscribe");
 	const { id } = useParams();
@@ -40,17 +41,19 @@ const VideoDetails = () => {
 		fetchFromAPI(
 			`commentThreads?part=snippet&videoId=${id}&maxResults=100`
 		).then((data) => setComments(data.items));
-	}, []);
+
+		fetchFromAPI(`channels?part=snippet&id=${id}`).then((data) => setChannelDetails(data.items));
+	}, [1]);
 
 	if (!videoDetail?.snippet) {
 		return <Loader />;
 	}
 	console.log(comments);
+	console.log(channelDetails)
 	const {
 		snippet: { title, channelId, channelTitle },
 		statistics: { viewCount, likeCount, commentCount },
 	} = videoDetail;
-
 	return (
 		<div className="w-full">
 			<div className="w-full max-w-[1500px] mx-auto flex gap-6">
@@ -71,7 +74,7 @@ const VideoDetails = () => {
 										{channelTitle}
 										<CheckCircle
 											sx={{
-												fontSize: "12px",
+												fontSize: "11px",
 												color: "gray",
 												ml: "5px",
 												mr: "20px",
