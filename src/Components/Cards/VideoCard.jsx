@@ -45,7 +45,7 @@ const VideoCard = ({
 						</div>
 					)}
 
-					<div className={`w-full flex flex-col ${isGrid ? 'gap-2': 'gap-1'}`}>
+					<div className={`w-full flex flex-col gap-1`}>
 						<Link to={`/video/${videoId}`}>
 							<p className="text-white text-sm">
 								{snippet?.title.slice(0, 100)}
@@ -63,7 +63,7 @@ const VideoCard = ({
 							</Typography>
 							<CheckCircle sx={{ fontSize: 13 }} />
 						</Link>
-						<p className="text-xs text-gray-600">{formattedDate}</p>
+						<p className="text-xs text-neutral-400">{formattedDate}</p>
 					</div>
 				</div>
 			</div>
