@@ -38,7 +38,7 @@ const ChannelDetails = () => {
 				<Typography variant="h4" sx={{ color: "#fff", textAlign: "center" }}>
 					{/* More Videos from {channelDetail.snippet?.title}    */}
 				</Typography>
-				<Videos videos={videos} />
+				<Videos isGrid={true} videos={videos} />
 			</Box>
 		</Box>
 	);
