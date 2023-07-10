@@ -16,7 +16,7 @@ const VideoCard = ({
 	const formattedDate = useDateFormatter(snippet?.publishedAt);
 	let viewCount;
 	if (videoData) {
-		viewCount = useViewCountFormatter(videoData)
+		viewCount = useViewCountFormatter(videoData?.viewCount)
 	}
 	const clipText = (text) => {
 		const words = text.split(' ');
@@ -30,14 +30,13 @@ const VideoCard = ({
 		return clippedText;
 	}
 	const fetchVideoDetails = async () => {
-		const { items } = await fetchFromAPI(`videos?part=snippet,statistics&id=${videoId}`)
-		setVideoData(items)
+		const { items } = await fetchFromAPI(`videos?part=,statistics&id=${videoId}`)
+		setVideoData(items[0]?.statistics)
 	}
 	useEffect(() => {
 		fetchVideoDetails();
 	}, []);
 	const videoTitle = clipText(snippet?.title);
-	console.log(videoData?.statistics?.viewCount)
 	return (
 		<div
 			className={`bg-transparent overflow-hidden w-full flex ${isGrid ? "flex-col" : "flex-row"
@@ -85,7 +84,7 @@ const VideoCard = ({
 							<CheckCircle sx={{ fontSize: 13 }} />
 						</Link>
 						<div className="flex">
-
+							<p>{viewCount}</p>
 							<p className="text-xs text-neutral-400">{formattedDate}</p>
 						</div>
 					</div>
