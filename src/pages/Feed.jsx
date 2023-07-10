@@ -25,7 +25,7 @@ const Feed = () => {
 						variant="h6"
 						fontWeight="bold"
 						mb={2}
-						sx={{ color: "white" , textAlign : 'center'}}>
+						sx={{ color: "white", textAlign: 'center' }}>
 						{selectedCategory}
 
 						<span className="text-primary-red"> Videos</span>
