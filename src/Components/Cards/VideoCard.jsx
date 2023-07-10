@@ -4,6 +4,7 @@ import { Typography, Card, CardContent, CardMedia, Stack } from "@mui/material";
 import { CheckCircle } from "@mui/icons-material";
 import { fetchFromAPI } from "../../utils/FetchFromApi";
 import useDateFormatter from "../../hooks/usedateformatter";
+import useViewCountFormatter from '../../hooks/useViewCount'
 const VideoCard = ({
 	video: {
 		id: { videoId },
@@ -11,8 +12,12 @@ const VideoCard = ({
 	},
 	isGrid,
 }) => {
+	const [videoData, setVideoData] = useState(null)
 	const formattedDate = useDateFormatter(snippet?.publishedAt);
-
+	let viewCount;
+	if (videoData) {
+		viewCount = useViewCountFormatter(videoData)
+	}
 	const clipText = (text) => {
 		const words = text.split(' ');
 
@@ -24,12 +29,15 @@ const VideoCard = ({
 
 		return clippedText;
 	}
-
+	const fetchVideoDetails = async () => {
+		const { items } = await fetchFromAPI(`videos?part=snippet,statistics&id=${videoId}`)
+		setVideoData(items)
+	}
 	useEffect(() => {
-		fetchFromAPI(``);
+		fetchVideoDetails();
 	}, []);
 	const videoTitle = clipText(snippet?.title);
-	console.log(snippet)
+	console.log(videoData?.statistics?.viewCount)
 	return (
 		<div
 			className={`bg-transparent overflow-hidden w-full flex ${isGrid ? "flex-col" : "flex-row"
@@ -76,7 +84,10 @@ const VideoCard = ({
 							</Typography>
 							<CheckCircle sx={{ fontSize: 13 }} />
 						</Link>
-						<p className="text-xs text-neutral-400">{formattedDate}</p>
+						<div className="flex">
+
+							<p className="text-xs text-neutral-400">{formattedDate}</p>
+						</div>
 					</div>
 				</div>
 			</div>

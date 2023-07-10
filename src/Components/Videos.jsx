@@ -11,7 +11,7 @@ const Videos = ({ videos, isGrid }) => {
 			return <CardLoader />;
 		}
 	}
-
+	
 	return (
 		<div className="flex justify-center md:px-24">
 			<div
