@@ -12,18 +12,31 @@ const VideoCard = ({
 	isGrid,
 }) => {
 	const formattedDate = useDateFormatter(snippet?.publishedAt);
+
+	const clipText = (text) => {
+		const words = text.split(' ');
+
+		const clippedText = words.slice(0, 10).join(' ');
+
+		if (words.length > 10) {
+			return clippedText + '...';
+		}
+
+		return clippedText;
+	}
+
 	useEffect(() => {
 		fetchFromAPI(``);
 	}, []);
+	const videoTitle = clipText(snippet?.title);
+	console.log(snippet)
 	return (
 		<div
-			className={`bg-transparent overflow-hidden w-full flex ${
-				isGrid ? "flex-col" : "flex-row"
-			} gap-3`}>
+			className={`bg-transparent overflow-hidden w-full flex ${isGrid ? "flex-col" : "flex-row"
+				} gap-3`}>
 			<div
-				className={`w-full rounded-xl ${
-					isGrid ? "h-[160px]" : "h-[110px] min-w-[200px] max-w-[200px]"
-				} overflow-hidden`}>
+				className={`w-full rounded-xl ${isGrid ? "h-[160px]" : "h-[110px] min-w-[200px] max-w-[200px]"
+					} overflow-hidden`}>
 				<Link to={`/video/${videoId}`}>
 					<img
 						src={snippet?.thumbnails?.high?.url}
@@ -47,8 +60,8 @@ const VideoCard = ({
 
 					<div className={`w-full flex flex-col gap-1`}>
 						<Link to={`/video/${videoId}`}>
-							<p className="text-white text-sm">
-								{snippet?.title.slice(0, 100)}
+							<p className="text-white text-xs" title={snippet?.title}>
+								{videoTitle}
 							</p>
 						</Link>
 						<Link
