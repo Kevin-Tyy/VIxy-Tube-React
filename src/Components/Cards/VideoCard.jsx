@@ -42,7 +42,7 @@ const VideoCard = ({
 			className={`bg-transparent overflow-hidden w-full flex ${isGrid ? "flex-col" : "flex-row"
 				} gap-3`}>
 			<div
-				className={`w-full rounded-xl ${isGrid ? "h-[160px]" : "h-[110px] min-w-[200px] max-w-[200px]"
+				className={`w-full rounded-xl ${isGrid ? "h-[160px]" : "h-[100px] min-w-[180px] max-w-[180px]"
 					} overflow-hidden`}>
 				<Link to={`/video/${videoId}`}>
 					<img
@@ -52,7 +52,7 @@ const VideoCard = ({
 					/>
 				</Link>
 			</div>
-			<div>
+			<div className="w-full">
 				<div className="flex gap-4">
 					{isGrid && (
 						<div className="h-9 w-9 rounded-full overflow-hidden">

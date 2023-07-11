@@ -75,7 +75,7 @@ const VideoDetails = () => {
 	return (
 		<div className="w-full">
 			<div className="w-full max-w-[1500px] mx-auto flex gap-6">
-				<div className="">
+				<div className="w-full">
 					<div className="w-full ">
 						<ReactPlayer
 							url={`${WATCH_URL}?v=${id}`}
