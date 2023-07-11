@@ -24,7 +24,7 @@ const VideoCard = ({
 		const clippedText = words.slice(0, 10).join(' ');
 
 		if (words.length > 10) {
-			return clippedText + '...';
+			return clippedText + ' . . .';
 		}
 
 		return clippedText;

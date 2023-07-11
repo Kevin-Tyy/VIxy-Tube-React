@@ -6,7 +6,12 @@ import { fetchFromAPI } from "../utils/FetchFromApi";
 const Feed = () => {
 	const [selectedCategory, setSelectdeCategory] = useState("Trending");
 	const [videos, setVideos] = useState([]);
-
+	useEffect(() => {
+		window.scrollTo({
+			top: 0,
+			behavior: 'smooth'
+		});
+	}, [])
 	useEffect(() => {
 		fetchFromAPI(
 			`search?part=snippet&q=${selectedCategory}&type=video,channel`

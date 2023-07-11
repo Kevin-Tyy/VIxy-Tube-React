@@ -34,7 +34,7 @@ const VideoDetails = () => {
 		const { items } = await fetchFromAPI(
 			`videos?part=snippet,statistics&id=${id}`
 		);
-		setVideoDetail(items)
+		setVideoDetail(items[0])
 	};
 	const fetchComments = async () => {
 		const { items } = await fetchFromAPI(
@@ -54,16 +54,20 @@ const VideoDetails = () => {
 		setVideos(items)
 	};
 	useEffect(() => {
-		fetchRelatedVideos();
-		fetchComments();
-		fetchChannelDetails();
-		fetchVideoDetails();
+		const fetchData = async () => {
+			await fetchRelatedVideos();
+			await fetchComments();
+			await fetchChannelDetails();
+			await fetchVideoDetails();
+			 
+		}
+		fetchData();
 	}, []);
 	
 	if (!videoDetail?.snippet) {
 		return <Loader />;
 	}
-
+	console.log()
 	const {
 		snippet: { title, channelId, channelTitle },
 		statistics: { viewCount, likeCount, commentCount },
@@ -72,7 +76,7 @@ const VideoDetails = () => {
 		<div className="w-full">
 			<div className="w-full max-w-[1500px] mx-auto flex gap-6">
 				<div className="">
-					<div className="w-full">
+					<div className="w-full ">
 						<ReactPlayer
 							url={`${WATCH_URL}?v=${id}`}
 							className="react-player"
